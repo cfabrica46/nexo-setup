@@ -1,1 +1,71 @@
-<p>ofertas works!</p>
+<main class="offers-page">
+  <section class="offers-hero">
+    <div class="container">
+      <span class="section-label"> NEXO DEALS </span>
+
+      <h1>
+        Mejora tu setup.<br />
+        <span>Paga menos.</span>
+      </h1>
+
+      <p>Productos seleccionados con descuentos especiales para darle un upgrade a tu espacio.</p>
+    </div>
+  </section>
+
+  <section class="container offers-content">
+    <div *ngIf="cargando" class="offers-message">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden"> Cargando... </span>
+      </div>
+
+      <p>Cargando ofertas...</p>
+    </div>
+
+    <div *ngIf="errorCarga" class="offers-message">
+      <i class="bi bi-exclamation-circle"></i>
+
+      <h2>No pudimos cargar las ofertas</h2>
+
+      <p>Comprueba que JSON Server esté funcionando.</p>
+    </div>
+
+    <ng-container *ngIf="!cargando && !errorCarga">
+      <div class="offers-heading">
+        <div>
+          <span class="section-label"> OFERTAS ACTIVAS </span>
+
+          <h2>Productos con precio especial.</h2>
+        </div>
+
+        <span class="offers-count"> {{ productosEnOferta.length }} ofertas </span>
+      </div>
+
+      <div *ngIf="productosEnOferta.length > 0" class="row g-4">
+        <div *ngFor="let producto of productosEnOferta" class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <app-product-card [producto]="producto"></app-product-card>
+        </div>
+      </div>
+
+      <div *ngIf="productosEnOferta.length === 0" class="offers-message">
+        <i class="bi bi-tag"></i>
+
+        <h2>No hay ofertas disponibles</h2>
+
+        <p>Revisa nuevamente más adelante.</p>
+      </div>
+    </ng-container>
+
+    <div class="offers-cta">
+      <div>
+        <h2>¿Buscas algo diferente?</h2>
+
+        <p>Explora todo el catálogo de NEXO Setup.</p>
+      </div>
+
+      <a routerLink="/productos" class="btn btn-nexo">
+        Ver todos los productos
+        <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+</main>

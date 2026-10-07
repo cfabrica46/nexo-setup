@@ -1,0 +1,135 @@
+.offers-page {
+  min-height: 100vh;
+  color: #f5f7fa;
+  background: #0b0d12;
+}
+
+.offers-hero {
+  padding: 5rem 0;
+  border-bottom: 1px solid #272b38;
+  background:
+    radial-gradient(circle at 75% 30%, rgba(124, 92, 252, 0.18), transparent 35%), #0b0d12;
+}
+
+.section-label {
+  color: #7c5cfc;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.offers-hero h1 {
+  margin: 0.8rem 0 1.2rem;
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.offers-hero h1 span {
+  color: #7c5cfc;
+}
+
+.offers-hero p {
+  max-width: 600px;
+  margin: 0;
+  color: #9ca3af;
+  font-size: 1.05rem;
+}
+
+.offers-content {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+.offers-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.offers-heading h2 {
+  margin: 0.6rem 0 0;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.offers-count {
+  color: #9ca3af;
+}
+
+.offers-message {
+  padding: 5rem 1rem;
+  color: #9ca3af;
+  text-align: center;
+}
+
+.offers-message i {
+  display: block;
+  margin-bottom: 1rem;
+  color: #7c5cfc;
+  font-size: 2rem;
+}
+
+.offers-message h2 {
+  color: #f5f7fa;
+  font-size: 1.4rem;
+}
+
+.spinner-border {
+  color: #7c5cfc;
+}
+
+.offers-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 5rem;
+  padding: 2.5rem;
+  background: #151821;
+  border: 1px solid #272b38;
+  border-radius: 16px;
+}
+
+.offers-cta h2 {
+  margin-bottom: 0.4rem;
+  font-size: 1.5rem;
+}
+
+.offers-cta p {
+  margin: 0;
+  color: #9ca3af;
+}
+
+.btn-nexo {
+  flex-shrink: 0;
+  padding: 0.8rem 1.2rem;
+  color: #fff;
+  background: #7c5cfc;
+  border: 1px solid #7c5cfc;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.btn-nexo:hover {
+  color: #fff;
+  background: #6d4df0;
+  border-color: #6d4df0;
+}
+
+@media (max-width: 767px) {
+  .offers-hero {
+    padding: 3.5rem 0;
+  }
+
+  .offers-heading,
+  .offers-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .offers-content {
+    padding-top: 3rem;
+  }
+}
