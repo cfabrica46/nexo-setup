@@ -1,0 +1,154 @@
+.products-page {
+  min-height: 100vh;
+  background: #0b0d12;
+  color: #f5f7fa;
+}
+
+.products-header {
+  padding: 5rem 0 3rem;
+  border-bottom: 1px solid #272b38;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(124, 92, 252, 0.12), transparent 35%), #0b0d12;
+}
+
+.section-label {
+  color: #7c5cfc;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.products-header h1 {
+  max-width: 700px;
+  margin-top: 0.75rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+}
+
+.products-header p {
+  max-width: 600px;
+  margin-top: 1rem;
+  color: #9ca3af;
+  font-size: 1.05rem;
+}
+
+.products-content {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.catalog-toolbar {
+  margin-bottom: 2.5rem;
+}
+
+.search-box {
+  position: relative;
+  max-width: 520px;
+}
+
+.search-box i {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  z-index: 2;
+  color: #9ca3af;
+  transform: translateY(-50%);
+}
+
+.search-box input {
+  padding: 0.85rem 1rem 0.85rem 2.8rem;
+  color: #f5f7fa;
+  background: #151821;
+  border: 1px solid #272b38;
+  border-radius: 12px;
+}
+
+.search-box input::placeholder {
+  color: #6b7280;
+}
+
+.search-box input:focus {
+  color: #f5f7fa;
+  background: #151821;
+  border-color: #7c5cfc;
+  box-shadow: 0 0 0 0.2rem rgba(124, 92, 252, 0.12);
+}
+
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.category-button {
+  padding: 0.55rem 1rem;
+  color: #9ca3af;
+  background: #151821;
+  border: 1px solid #272b38;
+  border-radius: 10px;
+  transition: 180ms ease;
+}
+
+.category-button:hover {
+  color: #f5f7fa;
+  border-color: #7c5cfc;
+}
+
+.category-button.active {
+  color: #fff;
+  background: #7c5cfc;
+  border-color: #7c5cfc;
+}
+
+.results-info {
+  margin-bottom: 1.5rem;
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+.catalog-message {
+  padding: 5rem 1rem;
+  color: #9ca3af;
+  text-align: center;
+}
+
+.catalog-message i {
+  display: block;
+  margin-bottom: 1rem;
+  color: #7c5cfc;
+  font-size: 2rem;
+}
+
+.catalog-message h2 {
+  color: #f5f7fa;
+  font-size: 1.3rem;
+}
+
+.spinner-border {
+  color: #7c5cfc;
+}
+
+@media (max-width: 767px) {
+  .products-header {
+    padding: 3.5rem 0 2.5rem;
+  }
+
+  .products-content {
+    padding-top: 2rem;
+  }
+
+  .search-box {
+    max-width: 100%;
+  }
+
+  .category-filters {
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
+    overflow-x: auto;
+  }
+
+  .category-button {
+    flex: 0 0 auto;
+  }
+}

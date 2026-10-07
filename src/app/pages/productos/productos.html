@@ -1,1 +1,79 @@
-<p>productos works!</p>
+<main class="products-page">
+  <section class="products-header">
+    <div class="container">
+      <span class="section-label">CATÁLOGO</span>
+
+      <h1>Encuentra lo que tu setup necesita.</h1>
+
+      <p>Accesorios seleccionados para trabajar, estudiar y disfrutar mejor tu espacio.</p>
+    </div>
+  </section>
+
+  <section class="container products-content">
+    <div class="catalog-toolbar">
+      <div class="search-box">
+        <i class="bi bi-search"></i>
+
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Buscar productos..."
+          [(ngModel)]="terminoBusqueda"
+        />
+      </div>
+
+      <div class="category-filters">
+        <button
+          *ngFor="let categoria of categorias"
+          type="button"
+          class="category-button"
+          [ngClass]="{
+            active: categoriaSeleccionada === categoria,
+          }"
+          (click)="filtrarCategoria(categoria)"
+        >
+          {{ categoria }}
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="cargando" class="catalog-message">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden"> Cargando... </span>
+      </div>
+
+      <p>Cargando productos...</p>
+    </div>
+
+    <div *ngIf="errorCarga" class="catalog-message">
+      <i class="bi bi-exclamation-circle"></i>
+
+      <h2>No pudimos cargar los productos</h2>
+
+      <p>Comprueba que JSON Server esté ejecutándose en el puerto 3000.</p>
+    </div>
+
+    <ng-container *ngIf="!cargando && !errorCarga">
+      <div class="results-info">
+        <span>
+          {{ productosFiltrados.length }}
+          productos encontrados
+        </span>
+      </div>
+
+      <div *ngIf="productosFiltrados.length > 0" class="row g-4">
+        <div *ngFor="let producto of productosFiltrados" class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <app-product-card [producto]="producto"></app-product-card>
+        </div>
+      </div>
+
+      <div *ngIf="productosFiltrados.length === 0" class="catalog-message">
+        <i class="bi bi-search"></i>
+
+        <h2>No encontramos productos</h2>
+
+        <p>Prueba con otro término o selecciona una categoría diferente.</p>
+      </div>
+    </ng-container>
+  </section>
+</main>

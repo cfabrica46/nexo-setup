@@ -1,1 +1,62 @@
-<p>product-card works!</p>
+<div
+  class="product-card h-100"
+  [ngStyle]="{
+    opacity: producto.stock === 0 ? 0.65 : 1,
+  }"
+>
+  <div class="product-image-wrapper">
+    <span *ngIf="producto.oferta" class="offer-badge"> -{{ producto.descuento }}% </span>
+
+    <img [src]="producto.imagen" [alt]="producto.nombre" class="product-image" />
+  </div>
+
+  <div class="product-content">
+    <span class="product-category">
+      {{ producto.categoria }}
+    </span>
+
+    <h3 class="product-name">
+      {{ producto.nombre }}
+    </h3>
+
+    <p class="product-description">
+      {{ producto.descripcion }}
+    </p>
+
+    <div class="product-price">
+      <ng-container *ngIf="producto.oferta; else precioNormal">
+        <span class="old-price">
+          {{ producto.precio | currency: 'PEN' : 'symbol' : '1.2-2' }}
+        </span>
+
+        <span class="current-price">
+          {{ precioFinal | currency: 'PEN' : 'symbol' : '1.2-2' }}
+        </span>
+      </ng-container>
+
+      <ng-template #precioNormal>
+        <span class="current-price">
+          {{ producto.precio | currency: 'PEN' : 'symbol' : '1.2-2' }}
+        </span>
+      </ng-template>
+    </div>
+
+    <div class="stock-row">
+      <span
+        [ngClass]="{
+          'stock-available': producto.stock > 5,
+          'stock-low': producto.stock > 0 && producto.stock <= 5,
+          'stock-empty': producto.stock === 0,
+        }"
+      >
+        <ng-container *ngIf="producto.stock > 5"> En stock: {{ producto.stock }} </ng-container>
+
+        <ng-container *ngIf="producto.stock > 0 && producto.stock <= 5">
+          Últimas {{ producto.stock }} unidades
+        </ng-container>
+
+        <ng-container *ngIf="producto.stock === 0"> Sin stock </ng-container>
+      </span>
+    </div>
+  </div>
+</div>
