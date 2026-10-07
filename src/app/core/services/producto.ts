@@ -8,7 +8,7 @@ import { Producto } from '../../models/producto.model';
   providedIn: 'root',
 })
 export class ProductoService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'https://nexo-setup.onrender.com';
 
   constructor(private http: HttpClient) {}
 
