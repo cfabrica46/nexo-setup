@@ -47,13 +47,75 @@
         </li>
       </ul>
 
-      <div class="navbar-actions d-flex gap-2">
-        <a class="btn btn-account" routerLink="/mi-cuenta">
-          <i class="bi bi-person"></i>
-          Mi Cuenta
-        </a>
+      <div class="navbar-account">
+        <ng-container *ngIf="usuario$ | async as usuario; else sesionInvitado">
+          <div class="dropdown">
+            <button
+              class="account-trigger dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-person-circle"></i>
 
-        <a class="btn btn-login" routerLink="/login"> Ingresar </a>
+              <span>
+                {{ usuario.nombre }}
+              </span>
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end nexo-dropdown">
+              <li>
+                <div class="dropdown-user">
+                  <strong>
+                    {{ usuario.nombre }}
+                  </strong>
+
+                  <span>
+                    {{ usuario.email }}
+                  </span>
+                </div>
+              </li>
+
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+
+              <li>
+                <a class="dropdown-item" routerLink="/mi-cuenta">
+                  <i class="bi bi-person"></i>
+                  Mi Cuenta
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" routerLink="/dashboard">
+                  <i class="bi bi-grid"></i>
+                  Dashboard
+                </a>
+              </li>
+
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+
+              <li>
+                <button class="dropdown-item logout-item" type="button" (click)="cerrarSesion()">
+                  <i class="bi bi-box-arrow-right"></i>
+                  Cerrar sesión
+                </button>
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+
+        <ng-template #sesionInvitado>
+          <a routerLink="/mi-cuenta" class="account-link">
+            <i class="bi bi-person"></i>
+            Mi Cuenta
+          </a>
+
+          <a routerLink="/login" class="login-link"> Ingresar </a>
+        </ng-template>
       </div>
     </div>
   </div>

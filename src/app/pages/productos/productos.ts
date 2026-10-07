@@ -18,6 +18,8 @@ export class Productos implements OnInit {
   cargando = true;
   errorCarga = false;
 
+  skeletons = Array.from({ length: 8 });
+
   categorias: string[] = [
     'Todos',
     'Teclados',

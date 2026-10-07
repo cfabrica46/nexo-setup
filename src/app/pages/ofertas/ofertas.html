@@ -40,6 +40,12 @@
         <span class="offers-count"> {{ productosEnOferta.length }} ofertas </span>
       </div>
 
+      <div *ngIf="cargando" class="row g-4">
+        <div *ngFor="let skeleton of skeletons" class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <app-product-skeleton></app-product-skeleton>
+        </div>
+      </div>
+
       <div *ngIf="productosEnOferta.length > 0" class="row g-4">
         <div *ngFor="let producto of productosEnOferta" class="col-12 col-sm-6 col-lg-4 col-xl-3">
           <app-product-card [producto]="producto"></app-product-card>

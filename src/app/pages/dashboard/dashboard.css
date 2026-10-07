@@ -188,3 +188,302 @@
     min-width: 650px;
   }
 }
+
+/* =========================
+   Analytics
+   ========================= */
+
+.analytics-section {
+  margin-bottom: 2rem;
+}
+
+.analytics-card {
+  padding: 1.75rem;
+
+  background: #151821;
+
+  border: 1px solid #272b38;
+  border-radius: 18px;
+}
+
+.analytics-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  margin-bottom: 2rem;
+}
+
+.analytics-header h2 {
+  margin: 0.35rem 0 0;
+
+  color: #f5f7fa;
+
+  font-size: 1.3rem;
+  font-weight: 650;
+}
+
+.analytics-header p {
+  margin: 0.45rem 0 0;
+
+  color: #9ca3af;
+
+  font-size: 0.85rem;
+}
+
+.analytics-total {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  flex-shrink: 0;
+}
+
+.analytics-total span {
+  color: #9ca3af;
+
+  font-size: 0.72rem;
+}
+
+.analytics-total strong {
+  margin-top: 0.15rem;
+
+  color: #f5f7fa;
+
+  font-size: 1.65rem;
+  font-weight: 700;
+}
+
+/* =========================
+   Category chart
+   ========================= */
+
+.category-chart {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.3rem;
+}
+
+.category-row {
+  width: 100%;
+}
+
+.category-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-bottom: 0.55rem;
+}
+
+.category-name {
+  color: #f5f7fa;
+
+  font-size: 0.85rem;
+  font-weight: 550;
+}
+
+.category-value {
+  color: #9ca3af;
+
+  font-size: 0.75rem;
+}
+
+.category-track {
+  width: 100%;
+  height: 8px;
+
+  overflow: hidden;
+
+  background: #1d202b;
+
+  border-radius: 999px;
+}
+
+.category-bar {
+  height: 100%;
+
+  background: linear-gradient(90deg, #6d4df0, #8b72ff);
+
+  border-radius: inherit;
+
+  box-shadow: 0 0 18px rgba(124, 92, 252, 0.2);
+
+  transition: width 600ms ease;
+}
+
+.category-bar {
+  height: 100%;
+
+  background: linear-gradient(90deg, #6d4df0, #8b72ff);
+
+  border-radius: inherit;
+
+  transform-origin: left;
+
+  animation: grow-bar 700ms ease-out;
+
+  box-shadow: 0 0 18px rgba(124, 92, 252, 0.2);
+}
+
+@keyframes grow-bar {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* =========================
+   Stock analytics
+   ========================= */
+
+.stock-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.stock-title {
+  margin: 0.35rem 0 0;
+
+  color: #f5f7fa;
+
+  font-size: 1.3rem;
+  font-weight: 650;
+}
+
+.stock-description {
+  margin: 0.45rem 0 0;
+
+  color: #9ca3af;
+
+  font-size: 0.85rem;
+}
+
+.stock-chart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex: 1;
+
+  padding: 2rem 0;
+}
+
+.stock-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 190px;
+  height: 190px;
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 40px rgba(124, 92, 252, 0.08);
+
+  transition: background 500ms ease;
+}
+
+.stock-chart-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 130px;
+  height: 130px;
+
+  background: #151821;
+
+  border: 1px solid #272b38;
+  border-radius: 50%;
+}
+
+.stock-chart-center strong {
+  color: #f5f7fa;
+
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.stock-chart-center span {
+  margin-top: 0.15rem;
+
+  color: #9ca3af;
+
+  font-size: 0.72rem;
+}
+
+/* Leyenda */
+
+.stock-legend {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.8rem;
+
+  padding-top: 1.25rem;
+
+  border-top: 1px solid #272b38;
+}
+
+.stock-legend-item {
+  display: flex;
+  align-items: center;
+
+  gap: 0.75rem;
+}
+
+.stock-legend-item > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.stock-legend-item span {
+  color: #9ca3af;
+
+  font-size: 0.78rem;
+}
+
+.stock-legend-item strong {
+  color: #f5f7fa;
+
+  font-size: 0.85rem;
+}
+
+.legend-dot {
+  flex-shrink: 0;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+}
+
+.legend-dot.normal {
+  background: #22c55e;
+}
+
+.legend-dot.warning {
+  background: #f59e0b;
+}
+
+.legend-dot.danger {
+  background: #ef4444;
+}
+
+.stat-card strong,
+.stock-chart-center strong {
+  font-variant-numeric: tabular-nums;
+}

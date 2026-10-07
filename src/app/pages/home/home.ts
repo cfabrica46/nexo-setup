@@ -13,6 +13,11 @@ export class Home implements OnInit {
   productosDestacados: Producto[] = [];
   heroProducto: Producto | null = null;
 
+  cargando = true;
+  errorCarga = false;
+
+  skeletons = Array.from({ length: 4 });
+
   constructor(
     private productoService: ProductoService,
     private cdr: ChangeDetectorRef,
@@ -23,16 +28,25 @@ export class Home implements OnInit {
   }
 
   cargarDestacados(): void {
+    this.cargando = true;
+    this.errorCarga = false;
+
     this.productoService.getProductos().subscribe({
       next: (productos) => {
         this.heroProducto = productos.find((producto) => producto.id === 1) ?? null;
 
         this.productosDestacados = productos.filter((producto) => producto.destacado).slice(0, 4);
 
+        this.cargando = false;
+
         this.cdr.markForCheck();
       },
-      error: (error) => {
-        console.error('Error al cargar productos destacados:', error);
+
+      error: () => {
+        this.errorCarga = true;
+        this.cargando = false;
+
+        this.cdr.markForCheck();
       },
     });
   }

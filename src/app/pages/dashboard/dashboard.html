@@ -39,42 +39,175 @@
 
     <ng-container *ngIf="!cargando && !errorCarga">
       <!-- ESTADÍSTICAS -->
-      <section class="row g-3 stats-section">
-        <div class="col-12 col-md-4">
-          <div class="stat-card">
+      <section class="row row-cols-1 row-cols-md-2 row-cols-xl-5 g-3 stats-section">
+        <!-- TOTAL PRODUCTOS -->
+        <div class="col">
+          <div class="stat-card h-100">
             <div class="stat-icon">
               <i class="bi bi-box-seam"></i>
             </div>
 
             <div>
               <span>Total productos</span>
-              <strong>{{ totalProductos }}</strong>
+              <strong>{{ displayTotalProductos }}</strong>
             </div>
           </div>
         </div>
 
-        <div class="col-12 col-md-4">
-          <div class="stat-card">
+        <!-- OFERTAS -->
+        <div class="col">
+          <div class="stat-card h-100">
             <div class="stat-icon">
               <i class="bi bi-tag"></i>
             </div>
 
             <div>
               <span>Productos en oferta</span>
-              <strong>{{ totalOfertas }}</strong>
+              <strong>{{ displayTotalOfertas }}</strong>
             </div>
           </div>
         </div>
 
-        <div class="col-12 col-md-4">
-          <div class="stat-card">
+        <!-- SIN STOCK -->
+        <div class="col">
+          <div class="stat-card h-100">
             <div class="stat-icon danger">
+              <i class="bi bi-x-circle"></i>
+            </div>
+
+            <div>
+              <span>Sin stock</span>
+              <strong>{{ displayProductosSinStock }}</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- POCO STOCK -->
+        <div class="col">
+          <div class="stat-card h-100">
+            <div class="stat-icon warning">
               <i class="bi bi-exclamation-triangle"></i>
             </div>
 
             <div>
-              <span>Productos sin stock</span>
-              <strong>{{ productosSinStock }}</strong>
+              <span>Poco stock</span>
+              <strong>{{ displayProductosPocoStock }}</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- DISPONIBILIDAD -->
+        <div class="col">
+          <div class="stat-card h-100">
+            <div class="stat-icon success">
+              <i class="bi bi-check-circle"></i>
+            </div>
+
+            <div>
+              <span>Disponibilidad</span>
+              <strong> {{ displayPorcentajeDisponibles }}% </strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ANALYTICS -->
+      <section class="analytics-section">
+        <div class="row g-4">
+          <!-- CATEGORÍAS -->
+          <div class="col-12 col-xl-8">
+            <div class="analytics-card h-100">
+              <div class="analytics-header">
+                <div>
+                  <span class="section-label"> ANALYTICS </span>
+
+                  <h2>Distribución por categoría</h2>
+
+                  <p>Composición actual del catálogo de NEXO Setup.</p>
+                </div>
+
+                <div class="analytics-total">
+                  <span>Total catálogo</span>
+                  <strong>{{ totalProductos }}</strong>
+                </div>
+              </div>
+
+              <div class="category-chart">
+                <div *ngFor="let item of productosPorCategoria" class="category-row">
+                  <div class="category-info">
+                    <span class="category-name">
+                      {{ item.categoria }}
+                    </span>
+
+                    <span class="category-value"> {{ item.cantidad }} productos </span>
+                  </div>
+
+                  <div class="category-track">
+                    <div class="category-bar" [style.width.%]="item.porcentaje"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ESTADO DE STOCK -->
+          <div class="col-12 col-xl-4">
+            <div class="analytics-card stock-card h-100">
+              <div>
+                <span class="section-label"> INVENTARIO </span>
+
+                <h2 class="stock-title">Estado de stock</h2>
+
+                <p class="stock-description">Disponibilidad general del catálogo.</p>
+              </div>
+
+              <div class="stock-chart-wrapper">
+                <div class="stock-chart" [style.background]="stockChartBackground">
+                  <div class="stock-chart-center">
+                    <strong> {{ porcentajeDisponibles }}% </strong>
+
+                    <span> disponibles </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="stock-legend">
+                <div class="stock-legend-item">
+                  <span class="legend-dot normal"></span>
+
+                  <div>
+                    <span>Stock normal</span>
+
+                    <strong>
+                      {{ productosStockNormal }}
+                    </strong>
+                  </div>
+                </div>
+
+                <div class="stock-legend-item">
+                  <span class="legend-dot warning"></span>
+
+                  <div>
+                    <span>Poco stock</span>
+
+                    <strong>
+                      {{ productosPocoStock }}
+                    </strong>
+                  </div>
+                </div>
+
+                <div class="stock-legend-item">
+                  <span class="legend-dot danger"></span>
+
+                  <div>
+                    <span>Sin stock</span>
+
+                    <strong>
+                      {{ productosSinStock }}
+                    </strong>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

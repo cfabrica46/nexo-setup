@@ -37,12 +37,10 @@
       </div>
     </div>
 
-    <div *ngIf="cargando" class="catalog-message">
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden"> Cargando... </span>
+    <div *ngIf="cargando" class="row g-4" aria-label="Cargando productos">
+      <div *ngFor="let skeleton of skeletons" class="col-12 col-sm-6 col-lg-4 col-xl-3">
+        <app-product-skeleton></app-product-skeleton>
       </div>
-
-      <p>Cargando productos...</p>
     </div>
 
     <div *ngIf="errorCarga" class="catalog-message">

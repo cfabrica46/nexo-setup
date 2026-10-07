@@ -14,6 +14,7 @@ export class Ofertas implements OnInit {
 
   cargando = true;
   errorCarga = false;
+  skeletons = Array.from({ length: 6 });
 
   constructor(
     private productoService: ProductoService,
@@ -25,19 +26,22 @@ export class Ofertas implements OnInit {
   }
 
   cargarOfertas(): void {
+    this.cargando = true;
+    this.errorCarga = false;
+
     this.productoService.getProductos().subscribe({
       next: (productos) => {
-        this.productosEnOferta = productos.filter((producto) => producto.oferta === true);
+        this.productosEnOferta = productos.filter((producto) => producto.oferta);
 
         this.cargando = false;
+
         this.cdr.markForCheck();
       },
 
-      error: (error) => {
-        console.error('Error al cargar ofertas:', error);
-
+      error: () => {
         this.errorCarga = true;
         this.cargando = false;
+
         this.cdr.markForCheck();
       },
     });

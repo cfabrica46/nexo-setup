@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 import { Usuario } from '../../models/usuario.model';
 
@@ -11,25 +12,33 @@ export class AuthService {
   private readonly demoEmail = 'admin@nexosetup.pe';
   private readonly demoPassword = 'nexo123';
 
+  private readonly usuarioSubject = new BehaviorSubject<Usuario | null>(this.getUsuario());
+
+  readonly usuario$ = this.usuarioSubject.asObservable();
+
   login(email: string, password: string): boolean {
-    if (email === this.demoEmail && password === this.demoPassword) {
-      const usuario: Usuario = {
-        nombre: 'Administrador NEXO',
-        email: this.demoEmail,
-        rol: 'Administrador',
-        fechaIngreso: new Date().toISOString(),
-      };
-
-      localStorage.setItem(this.sessionKey, JSON.stringify(usuario));
-
-      return true;
+    if (email !== this.demoEmail || password !== this.demoPassword) {
+      return false;
     }
 
-    return false;
+    const usuario: Usuario = {
+      nombre: 'Administrador NEXO',
+      email: this.demoEmail,
+      rol: 'Administrador',
+      fechaIngreso: new Date().toISOString(),
+    };
+
+    localStorage.setItem(this.sessionKey, JSON.stringify(usuario));
+
+    this.usuarioSubject.next(usuario);
+
+    return true;
   }
 
   logout(): void {
     localStorage.removeItem(this.sessionKey);
+
+    this.usuarioSubject.next(null);
   }
 
   isAuthenticated(): boolean {
@@ -43,6 +52,10 @@ export class AuthService {
       return null;
     }
 
-    return JSON.parse(session) as Usuario;
+    try {
+      return JSON.parse(session) as Usuario;
+    } catch {
+      return null;
+    }
   }
 }

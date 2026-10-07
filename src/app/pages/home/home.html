@@ -149,7 +149,12 @@
         </div>
       </div>
 
-      <div class="row g-4">
+      <div *ngIf="cargando" class="row g-4">
+        <div *ngFor="let skeleton of skeletons" class="col-12 col-sm-6 col-lg-3">
+          <app-product-skeleton></app-product-skeleton>
+        </div>
+      </div>
+      <div *ngIf="!cargando && !errorCarga" class="row g-4">
         <div *ngFor="let producto of productosDestacados" class="col-12 col-sm-6 col-lg-3">
           <app-product-card [producto]="producto"></app-product-card>
         </div>

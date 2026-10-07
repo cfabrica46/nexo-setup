@@ -85,3 +85,187 @@
     padding-bottom: 0.75rem;
   }
 }
+
+.navbar-account {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.account-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  padding: 0.65rem 0.9rem;
+
+  color: #f5f7fa;
+  background: #151821;
+
+  border: 1px solid #272b38;
+  border-radius: 9px;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  transition:
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.account-trigger:hover {
+  background: #1d202b;
+  border-color: #7c5cfc;
+}
+
+.account-trigger i {
+  color: #a78bfa;
+}
+
+.nexo-dropdown {
+  min-width: 230px;
+
+  margin-top: 0.65rem !important;
+  padding: 0.5rem;
+
+  color: #f5f7fa;
+  background: #151821;
+
+  border: 1px solid #272b38;
+  border-radius: 12px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.dropdown-user {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0.6rem 0.75rem;
+}
+
+.dropdown-user strong {
+  color: #f5f7fa;
+
+  font-size: 0.85rem;
+}
+
+.dropdown-user span {
+  margin-top: 0.15rem;
+
+  color: #9ca3af;
+
+  font-size: 0.72rem;
+}
+
+.nexo-dropdown .dropdown-divider {
+  border-color: #272b38;
+}
+
+.nexo-dropdown .dropdown-item {
+  display: flex;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  padding: 0.65rem 0.75rem;
+
+  color: #c5cad3;
+  background: transparent;
+
+  border-radius: 7px;
+
+  font-size: 0.85rem;
+
+  transition:
+    color 150ms ease,
+    background 150ms ease;
+}
+
+.nexo-dropdown .dropdown-item:hover {
+  color: #f5f7fa;
+  background: #1d202b;
+}
+
+.nexo-dropdown .dropdown-item i {
+  color: #8b7cf6;
+}
+
+.nexo-dropdown .logout-item:hover {
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.nexo-dropdown .logout-item:hover i {
+  color: #ef4444;
+}
+
+/* =========================
+   Guest account actions
+   ========================= */
+
+.account-link,
+.login-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.45rem;
+
+  text-decoration: none !important;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  border-radius: 8px;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+/* Mi Cuenta */
+.account-link {
+  padding: 0.6rem 0.9rem;
+
+  color: #f5f7fa !important;
+  background: transparent;
+
+  border: 1px solid #272b38;
+}
+
+.account-link i {
+  color: #9ca3af;
+}
+
+.account-link:hover {
+  color: #ffffff !important;
+
+  background: #151821;
+  border-color: #3a3f50;
+}
+
+.account-link:hover i {
+  color: #a78bfa;
+}
+
+/* Ingresar */
+.login-link {
+  padding: 0.6rem 1rem;
+
+  color: #ffffff !important;
+  background: #7c5cfc;
+
+  border: 1px solid #7c5cfc;
+}
+
+.login-link:hover {
+  color: #ffffff !important;
+
+  background: #6d4df0;
+  border-color: #6d4df0;
+
+  transform: translateY(-1px);
+}
