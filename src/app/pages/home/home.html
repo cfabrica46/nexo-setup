@@ -61,11 +61,11 @@
 
                 <div class="hero-product-price">
                   <span *ngIf="heroProducto.oferta" class="hero-old-price">
-                    {{ heroProducto.precio | currency: 'PEN' : 'symbol' : '1.2-2' }}
+                    {{ heroProducto.precio | currency: 'S/ ' : 'symbol' : '1.2-2' }}
                   </span>
 
                   <strong>
-                    {{ heroPrecioFinal | currency: 'PEN' : 'symbol' : '1.2-2' }}
+                    {{ heroPrecioFinal | currency: 'S/ ' : 'symbol' : '1.2-2' }}
                   </strong>
                 </div>
               </div>
