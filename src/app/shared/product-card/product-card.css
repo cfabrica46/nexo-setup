@@ -21,12 +21,16 @@
 .product-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  padding: 1rem;
+
+  object-fit: contain;
+  object-position: center;
+
   transition: 180ms ease;
 }
 
 .product-card:hover .product-image {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 .offer-badge {
