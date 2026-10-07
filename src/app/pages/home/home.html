@@ -1,1 +1,199 @@
-<p>home works!</p>
+<main class="home-page">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center min-vh-hero">
+        <div class="col-lg-7">
+          <span class="hero-label"> NEXO SETUP </span>
+
+          <h1>
+            Tu espacio.<br />
+            <span>Tu ritmo.</span>
+          </h1>
+
+          <p class="hero-description">
+            Accesorios para trabajar, estudiar y crear un setup que se sienta realmente tuyo.
+          </p>
+
+          <div class="hero-actions">
+            <a routerLink="/productos" class="btn btn-primary-nexo">
+              Explorar productos
+              <i class="bi bi-arrow-right"></i>
+            </a>
+
+            <a routerLink="/tienda" class="btn btn-secondary-nexo"> Conocer NEXO </a>
+          </div>
+        </div>
+
+        <div class="col-lg-5 d-none d-lg-block">
+          <div class="hero-visual">
+            <div class="visual-card visual-card-main">
+              <i class="bi bi-keyboard"></i>
+
+              <span> Mejora tu espacio. </span>
+            </div>
+
+            <div class="visual-card visual-card-small">
+              <i class="bi bi-lightning-charge"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class="section-block">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <span class="section-label"> EXPLORA </span>
+
+          <h2>Todo para tu setup.</h2>
+        </div>
+
+        <a routerLink="/productos" class="section-link">
+          Ver catálogo
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-6 col-md-4 col-lg-2">
+          <a routerLink="/productos" class="category-card">
+            <i class="bi bi-keyboard"></i>
+            <span>Teclados</span>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <a routerLink="/productos" class="category-card">
+            <i class="bi bi-mouse"></i>
+            <span>Mouse</span>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <a routerLink="/productos" class="category-card">
+            <i class="bi bi-headphones"></i>
+            <span>Audio</span>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <a routerLink="/productos" class="category-card">
+            <i class="bi bi-display"></i>
+            <span>Escritorio</span>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <a routerLink="/productos" class="category-card">
+            <i class="bi bi-usb-symbol"></i>
+            <span>Conectividad</span>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <a routerLink="/productos" class="category-card">
+            <i class="bi bi-lamp"></i>
+            <span>Iluminación</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTACADOS -->
+  <section class="section-block featured-section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <span class="section-label"> DESTACADOS </span>
+
+          <h2>Elegidos para mejorar tu espacio.</h2>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div *ngFor="let producto of productosDestacados" class="col-12 col-sm-6 col-lg-3">
+          <app-product-card [producto]="producto"></app-product-card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMOCIÓN -->
+  <section class="section-block">
+    <div class="container">
+      <div class="promo-banner">
+        <div>
+          <span class="section-label"> NEXO DEALS </span>
+
+          <h2>Dale un upgrade a tu setup sin pagar de más.</h2>
+
+          <p>Descubre productos seleccionados con descuentos especiales.</p>
+        </div>
+
+        <a routerLink="/ofertas" class="btn btn-primary-nexo">
+          Ver ofertas
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="section-block">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <i class="bi bi-box-seam"></i>
+
+            <div>
+              <h3>Productos seleccionados</h3>
+              <p>Accesorios pensados para crear espacios más cómodos y funcionales.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <i class="bi bi-grid"></i>
+
+            <div>
+              <h3>Todo en un solo lugar</h3>
+              <p>
+                Tecnología, escritorio y accesorios organizados para encontrar rápido lo que
+                necesitas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <i class="bi bi-stars"></i>
+
+            <div>
+              <h3>Diseño que suma</h3>
+              <p>Funcionalidad sin dejar de lado la estética de tu setup.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="final-cta">
+    <div class="container text-center">
+      <span class="section-label"> TU ESPACIO EMPIEZA AQUÍ </span>
+
+      <h2>Construye un setup que se sienta tuyo.</h2>
+
+      <a routerLink="/productos" class="btn btn-primary-nexo"> Explorar catálogo </a>
+    </div>
+  </section>
+</main>
