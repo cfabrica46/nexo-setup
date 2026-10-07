@@ -11,6 +11,7 @@ import { ProductoService } from '../../core/services/producto';
 })
 export class Home implements OnInit {
   productosDestacados: Producto[] = [];
+  heroProducto: Producto | null = null;
 
   constructor(
     private productoService: ProductoService,
@@ -24,6 +25,8 @@ export class Home implements OnInit {
   cargarDestacados(): void {
     this.productoService.getProductos().subscribe({
       next: (productos) => {
+        this.heroProducto = productos.find((producto) => producto.id === 1) ?? null;
+
         this.productosDestacados = productos.filter((producto) => producto.destacado).slice(0, 4);
 
         this.cdr.markForCheck();
@@ -32,5 +35,15 @@ export class Home implements OnInit {
         console.error('Error al cargar productos destacados:', error);
       },
     });
+  }
+
+  get heroPrecioFinal(): number {
+    if (!this.heroProducto || !this.heroProducto.oferta || !this.heroProducto.descuento) {
+      return this.heroProducto?.precio ?? 0;
+    }
+
+    return (
+      this.heroProducto.precio - (this.heroProducto.precio * this.heroProducto.descuento) / 100
+    );
   }
 }

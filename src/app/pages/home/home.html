@@ -26,17 +26,51 @@
         </div>
 
         <div class="col-lg-5 d-none d-lg-block">
-          <div class="hero-visual">
-            <div class="visual-card visual-card-main">
-              <i class="bi bi-keyboard"></i>
+          <article *ngIf="heroProducto" class="hero-showcase">
+            <img
+              class="hero-showcase-image"
+              [src]="heroProducto.imagen"
+              [alt]="heroProducto.nombre"
+            />
 
-              <span> Mejora tu espacio. </span>
+            <div class="hero-showcase-shade"></div>
+
+            <div class="hero-showcase-top">
+              <span class="hero-featured-label"> NEXO FEATURED </span>
+
+              <span *ngIf="heroProducto.oferta" class="hero-offer-badge">
+                -{{ heroProducto.descuento }}%
+              </span>
             </div>
 
-            <div class="visual-card visual-card-small">
-              <i class="bi bi-lightning-charge"></i>
+            <div class="hero-showcase-content">
+              <div class="hero-product-meta">
+                <span>
+                  {{ heroProducto.categoria }}
+                </span>
+
+                <span class="hero-stock" *ngIf="heroProducto.stock > 0"> Disponible </span>
+              </div>
+
+              <h3>
+                {{ heroProducto.nombre }}
+              </h3>
+
+              <div class="hero-showcase-bottom">
+                <span class="hero-product-caption"> Diseñado para elevar tu setup. </span>
+
+                <div class="hero-product-price">
+                  <span *ngIf="heroProducto.oferta" class="hero-old-price">
+                    {{ heroProducto.precio | currency: 'PEN' : 'symbol' : '1.2-2' }}
+                  </span>
+
+                  <strong>
+                    {{ heroPrecioFinal | currency: 'PEN' : 'symbol' : '1.2-2' }}
+                  </strong>
+                </div>
+              </div>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </div>
