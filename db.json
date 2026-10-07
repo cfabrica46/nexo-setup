@@ -1,0 +1,142 @@
+{
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "NEXO Keys 75",
+      "descripcion": "Teclado mecánico compacto de 75% para trabajo, estudio y gaming casual.",
+      "imagen": "/assets/products/keyboard-01.webp",
+      "categoria": "Teclados",
+      "precio": 289.9,
+      "stock": 14,
+      "destacado": true,
+      "oferta": true,
+      "descuento": 15
+    },
+    {
+      "id": 2,
+      "nombre": "NEXO Keys Air",
+      "descripcion": "Teclado inalámbrico compacto y silencioso pensado para escritorios minimalistas.",
+      "imagen": "/assets/products/keyboard-02.webp",
+      "categoria": "Teclados",
+      "precio": 219.9,
+      "stock": 8,
+      "destacado": false,
+      "oferta": false
+    },
+    {
+      "id": 3,
+      "nombre": "NEXO Flow M1",
+      "descripcion": "Mouse inalámbrico ergonómico para productividad y uso diario.",
+      "imagen": "/assets/products/mouse-01.webp",
+      "categoria": "Mouse",
+      "precio": 129.9,
+      "stock": 18,
+      "destacado": true,
+      "oferta": false
+    },
+    {
+      "id": 4,
+      "nombre": "NEXO Pulse M2",
+      "descripcion": "Mouse ligero de alta precisión para trabajo y gaming casual.",
+      "imagen": "/assets/products/mouse-02.webp",
+      "categoria": "Mouse",
+      "precio": 159.9,
+      "stock": 4,
+      "destacado": false,
+      "oferta": true,
+      "descuento": 10
+    },
+    {
+      "id": 5,
+      "nombre": "NEXO Wave H1",
+      "descripcion": "Headset cerrado con micrófono desmontable para reuniones, estudio y entretenimiento.",
+      "imagen": "/assets/products/audio-01.webp",
+      "categoria": "Audio",
+      "precio": 199.9,
+      "stock": 9,
+      "destacado": true,
+      "oferta": true,
+      "descuento": 20
+    },
+    {
+      "id": 6,
+      "nombre": "NEXO Buds Pro",
+      "descripcion": "Audífonos inalámbricos compactos para acompañar tu rutina dentro y fuera del setup.",
+      "imagen": "/assets/products/audio-02.webp",
+      "categoria": "Audio",
+      "precio": 179.9,
+      "stock": 0,
+      "destacado": false,
+      "oferta": false
+    },
+    {
+      "id": 7,
+      "nombre": "NEXO Desk Mat XL",
+      "descripcion": "Desk mat de formato amplio para proteger y ordenar la superficie de trabajo.",
+      "imagen": "/assets/products/desk-01.webp",
+      "categoria": "Escritorio",
+      "precio": 89.9,
+      "stock": 22,
+      "destacado": true,
+      "oferta": false
+    },
+    {
+      "id": 8,
+      "nombre": "NEXO Stand",
+      "descripcion": "Soporte metálico para laptop que mejora la postura y libera espacio en el escritorio.",
+      "imagen": "/assets/products/desk-02.webp",
+      "categoria": "Escritorio",
+      "precio": 119.9,
+      "stock": 3,
+      "destacado": false,
+      "oferta": true,
+      "descuento": 15
+    },
+    {
+      "id": 9,
+      "nombre": "NEXO Hub C7",
+      "descripcion": "Hub USB-C multipuerto para ampliar la conectividad de laptops y estaciones de trabajo.",
+      "imagen": "/assets/products/connectivity-01.webp",
+      "categoria": "Conectividad",
+      "precio": 149.9,
+      "stock": 11,
+      "destacado": true,
+      "oferta": false
+    },
+    {
+      "id": 10,
+      "nombre": "NEXO Charge 65",
+      "descripcion": "Cargador compacto USB-C de 65 W para laptop, tablet y dispositivos móviles.",
+      "imagen": "/assets/products/connectivity-02.webp",
+      "categoria": "Conectividad",
+      "precio": 139.9,
+      "stock": 6,
+      "destacado": false,
+      "oferta": true,
+      "descuento": 10
+    },
+    {
+      "id": 11,
+      "nombre": "NEXO Light Bar",
+      "descripcion": "Barra de iluminación para monitor con luz regulable y diseño minimalista.",
+      "imagen": "/assets/products/light-01.webp",
+      "categoria": "Iluminación",
+      "precio": 169.9,
+      "stock": 7,
+      "destacado": true,
+      "oferta": true,
+      "descuento": 15
+    },
+    {
+      "id": 12,
+      "nombre": "NEXO Glow Mini",
+      "descripcion": "Lámpara ambiental compacta para añadir iluminación suave al espacio de trabajo.",
+      "imagen": "/assets/products/light-02.webp",
+      "categoria": "Iluminación",
+      "precio": 99.9,
+      "stock": 2,
+      "destacado": false,
+      "oferta": false
+    }
+  ]
+}
