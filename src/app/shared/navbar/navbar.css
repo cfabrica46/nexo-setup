@@ -1,0 +1,83 @@
+.nexo-navbar {
+  background: #0b0d12;
+  border-bottom: 1px solid #272b38;
+  padding: 0.9rem 0;
+}
+
+.nexo-brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.85;
+  color: #f5f7fa;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.nexo-brand:hover {
+  color: #f5f7fa;
+}
+
+.nexo-brand small {
+  margin-top: 0.35rem;
+  color: #7c5cfc;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+}
+
+.nav-link {
+  color: #9ca3af;
+  font-weight: 500;
+  transition: 180ms ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #f5f7fa;
+}
+
+.nav-link.active {
+  color: #7c5cfc;
+}
+
+.btn-account {
+  color: #f5f7fa;
+  border: 1px solid #272b38;
+}
+
+.btn-account:hover {
+  color: #f5f7fa;
+  background: #1d202b;
+  border-color: #7c5cfc;
+}
+
+.btn-login {
+  color: #fff;
+  background: #7c5cfc;
+  border: 1px solid #7c5cfc;
+}
+
+.btn-login:hover {
+  color: #fff;
+  background: #6d4df0;
+  border-color: #6d4df0;
+}
+
+.navbar-toggler {
+  color: #f5f7fa;
+  border: 1px solid #272b38;
+  font-size: 1.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+@media (max-width: 991px) {
+  .navbar-nav {
+    padding: 1rem 0;
+  }
+
+  .navbar-actions {
+    padding-bottom: 0.75rem;
+  }
+}

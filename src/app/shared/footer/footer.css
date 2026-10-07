@@ -1,0 +1,81 @@
+.nexo-footer {
+  margin-top: 5rem;
+  padding: 3.5rem 0 1.5rem;
+  background: #0b0d12;
+  border-top: 1px solid #272b38;
+  color: #9ca3af;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  color: #f5f7fa;
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: 0.08em;
+}
+
+.footer-brand small {
+  margin-top: 0.4rem;
+  color: #7c5cfc;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+}
+
+.footer-slogan {
+  margin: 1rem 0 0.5rem;
+  color: #f5f7fa;
+  font-weight: 600;
+}
+
+.footer-description {
+  max-width: 430px;
+}
+
+h6 {
+  color: #f5f7fa;
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.65rem;
+}
+
+.footer-links a {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: 180ms ease;
+}
+
+.footer-links a:hover {
+  color: #7c5cfc;
+}
+
+.footer-links i {
+  margin-right: 0.45rem;
+  color: #7c5cfc;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #272b38;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 767px) {
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
