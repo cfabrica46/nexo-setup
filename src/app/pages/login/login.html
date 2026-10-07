@@ -1,1 +1,72 @@
-<p>login works!</p>
+<main class="login-page">
+  <div class="container">
+    <div class="login-wrapper">
+      <div class="login-intro">
+        <span class="section-label"> NEXO ACCESS </span>
+
+        <h1>Tu espacio también necesita control.</h1>
+
+        <p>Ingresa para acceder al panel administrativo de NEXO Setup.</p>
+
+        <div class="demo-access">
+          <span>Credenciales demo</span>
+
+          <strong>admin@nexosetup.pe</strong>
+          <strong>nexo123</strong>
+        </div>
+      </div>
+
+      <div class="login-card">
+        <div class="login-heading">
+          <span class="login-icon">
+            <i class="bi bi-person"></i>
+          </span>
+
+          <div>
+            <h2>Iniciar sesión</h2>
+            <p>Acceso administrativo simulado.</p>
+          </div>
+        </div>
+
+        <form (ngSubmit)="iniciarSesion()">
+          <div class="mb-3">
+            <label for="email" class="form-label"> Correo </label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              class="form-control"
+              placeholder="admin@nexosetup.pe"
+              [(ngModel)]="email"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label"> Contraseña </label>
+
+            <input
+              id="password"
+              name="password"
+              type="password"
+              class="form-control"
+              placeholder="Ingresa tu contraseña"
+              [(ngModel)]="password"
+            />
+          </div>
+
+          <div *ngIf="errorLogin" class="login-error">
+            <i class="bi bi-exclamation-circle"></i>
+
+            Correo o contraseña incorrectos.
+          </div>
+
+          <button type="submit" class="btn btn-login-nexo w-100">
+            Ingresar al Dashboard
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
