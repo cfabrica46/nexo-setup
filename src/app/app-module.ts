@@ -9,9 +9,32 @@ import { provideHttpClient } from '@angular/common/http';
 import { Navbar } from './shared/navbar/navbar';
 import { Footer } from './shared/footer/footer';
 import { ProductCard } from './shared/product-card/product-card';
+import { Home } from './pages/home/home';
+import { Productos } from './pages/productos/productos';
+import { Ofertas } from './pages/ofertas/ofertas';
+import { Tienda } from './pages/tienda/tienda';
+import { Contacto } from './pages/contacto/contacto';
+import { Login } from './pages/login/login';
+import { MiCuenta } from './pages/mi-cuenta/mi-cuenta';
+import { Dashboard } from './pages/dashboard/dashboard';
+import { NotFound } from './pages/not-found/not-found';
 
 @NgModule({
-  declarations: [App, Navbar, Footer, ProductCard],
+  declarations: [
+    App,
+    Navbar,
+    Footer,
+    ProductCard,
+    Home,
+    Productos,
+    Ofertas,
+    Tienda,
+    Contacto,
+    Login,
+    MiCuenta,
+    Dashboard,
+    NotFound,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient()],
   bootstrap: [App],
