@@ -26,17 +26,17 @@
     <div class="product-price">
       <ng-container *ngIf="producto.oferta; else precioNormal">
         <span class="old-price">
-          {{ producto.precio | currency: 'PEN' : 'symbol' : '1.2-2' }}
+          {{ producto.precio | currency: 'PEN' : 'S/ ' : '1.2-2' }}
         </span>
 
         <span class="current-price">
-          {{ precioFinal | currency: 'PEN' : 'symbol' : '1.2-2' }}
+          {{ precioFinal | currency: 'PEN' : 'S/ ' : '1.2-2' }}
         </span>
       </ng-container>
 
       <ng-template #precioNormal>
         <span class="current-price">
-          {{ producto.precio | currency: 'PEN' : 'symbol' : '1.2-2' }}
+          {{ producto.precio | currency: 'PEN' : 'S/ ' : '1.2-2' }}
         </span>
       </ng-template>
     </div>

@@ -1,1 +1,78 @@
-<p>mi-cuenta works!</p>
+<main class="account-page">
+  <div class="container account-container">
+    <div class="account-header">
+      <span class="section-label"> MI CUENTA </span>
+
+      <h1>Tu espacio en NEXO.</h1>
+
+      <p>Consulta la información asociada a tu sesión actual.</p>
+    </div>
+
+    <!-- USUARIO AUTENTICADO -->
+    <div *ngIf="usuario" class="account-card">
+      <div class="profile-header">
+        <div class="profile-icon">
+          <i class="bi bi-person"></i>
+        </div>
+
+        <div>
+          <span class="session-status">
+            <i class="bi bi-circle-fill"></i>
+            Sesión activa
+          </span>
+
+          <h2>{{ usuario.nombre }}</h2>
+          <p>{{ usuario.email }}</p>
+        </div>
+      </div>
+
+      <div class="account-grid">
+        <div class="account-item">
+          <span>Nombre</span>
+          <strong>{{ usuario.nombre }}</strong>
+        </div>
+
+        <div class="account-item">
+          <span>Correo</span>
+          <strong>{{ usuario.email }}</strong>
+        </div>
+
+        <div class="account-item">
+          <span>Rol</span>
+          <strong>{{ usuario.rol }}</strong>
+        </div>
+
+        <div class="account-item">
+          <span>Fecha de ingreso</span>
+
+          <strong>
+            {{ usuario.fechaIngreso | date: 'dd/MM/yyyy HH:mm' }}
+          </strong>
+        </div>
+      </div>
+
+      <div class="account-actions">
+        <a routerLink="/dashboard" class="btn btn-dashboard">
+          <i class="bi bi-grid"></i>
+          Ir al Dashboard
+        </a>
+
+        <button type="button" class="btn btn-logout" (click)="cerrarSesion()">
+          <i class="bi bi-box-arrow-right"></i>
+          Cerrar sesión
+        </button>
+      </div>
+    </div>
+
+    <!-- SIN SESIÓN -->
+    <div *ngIf="!usuario" class="no-session">
+      <i class="bi bi-person-x"></i>
+
+      <h2>No tienes una sesión activa</h2>
+
+      <p>Inicia sesión para consultar la información de tu cuenta.</p>
+
+      <a routerLink="/login" class="btn btn-login"> Iniciar sesión </a>
+    </div>
+  </div>
+</main>

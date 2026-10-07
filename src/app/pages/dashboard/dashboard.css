@@ -1,0 +1,190 @@
+.dashboard-page {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+.dashboard-container {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.section-label {
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.dashboard-header h1 {
+  margin: 0.7rem 0;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.dashboard-header p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.btn-catalog {
+  flex-shrink: 0;
+  padding: 0.8rem 1.2rem;
+  color: #fff;
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.btn-catalog:hover {
+  color: #fff;
+  background: var(--color-primary-hover);
+}
+
+.stats-section {
+  margin-bottom: 4rem;
+}
+
+.stat-card {
+  display: flex;
+  height: 100%;
+  gap: 1rem;
+  padding: 1.5rem;
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.stat-icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  place-items: center;
+  color: var(--color-primary);
+  background: var(--color-surface-secondary);
+  border-radius: 12px;
+  font-size: 1.4rem;
+}
+
+.stat-icon.danger {
+  color: var(--color-danger);
+}
+
+.stat-card span {
+  display: block;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.stat-card strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 1.8rem;
+}
+
+.inventory-section {
+  padding: 2rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.inventory-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.inventory-header h2 {
+  margin: 0.5rem 0 0;
+  font-size: 1.6rem;
+}
+
+.inventory-count {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.nexo-table {
+  margin: 0;
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--color-text);
+  --bs-table-border-color: var(--color-border);
+}
+
+.nexo-table thead th {
+  padding: 1rem;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.nexo-table tbody td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+.stock-ok {
+  color: var(--color-success);
+}
+
+.stock-low {
+  color: var(--color-warning);
+}
+
+.stock-empty {
+  color: var(--color-danger);
+}
+
+.dashboard-message {
+  padding: 5rem 1rem;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.dashboard-message i {
+  color: var(--color-primary);
+  font-size: 2rem;
+}
+
+.spinner-border {
+  color: var(--color-primary);
+}
+
+@media (max-width: 767px) {
+  .dashboard-container {
+    padding-top: 3rem;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .inventory-section {
+    padding: 1.25rem;
+  }
+
+  .inventory-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nexo-table {
+    min-width: 650px;
+  }
+}
