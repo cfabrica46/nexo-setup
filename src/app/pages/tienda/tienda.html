@@ -1,1 +1,180 @@
-<p>tienda works!</p>
+<main class="store-page">
+  <!-- HERO -->
+  <section class="store-hero">
+    <div class="container">
+      <span class="section-label"> NEXO STORE </span>
+
+      <h1>
+        Diseña un espacio
+        <span>que funcione contigo.</span>
+      </h1>
+
+      <p>
+        Encuentra accesorios para construir un setup cómodo, ordenado y preparado para tu rutina.
+      </p>
+
+      <a routerLink="/productos" class="btn btn-nexo">
+        Explorar catálogo
+        <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class="section-block">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-label"> CATEGORÍAS </span>
+
+        <h2>Encuentra tu próximo upgrade.</h2>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-6 col-lg-4">
+          <a routerLink="/productos" class="category-card">
+            <i class="bi bi-keyboard"></i>
+            <div>
+              <h3>Control</h3>
+              <p>Teclados y mouse.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-6 col-lg-4">
+          <a routerLink="/productos" class="category-card">
+            <i class="bi bi-headphones"></i>
+            <div>
+              <h3>Audio</h3>
+              <p>Escucha y comunícate mejor.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-6 col-lg-4">
+          <a routerLink="/productos" class="category-card">
+            <i class="bi bi-display"></i>
+            <div>
+              <h3>Escritorio</h3>
+              <p>Orden y comodidad.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-6 col-lg-4">
+          <a routerLink="/productos" class="category-card">
+            <i class="bi bi-usb-symbol"></i>
+            <div>
+              <h3>Conectividad</h3>
+              <p>Conecta todo tu espacio.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-6 col-lg-4">
+          <a routerLink="/productos" class="category-card">
+            <i class="bi bi-lamp"></i>
+            <div>
+              <h3>Iluminación</h3>
+              <p>Ambiente y funcionalidad.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-6 col-lg-4">
+          <a routerLink="/ofertas" class="category-card accent-card">
+            <i class="bi bi-tag"></i>
+            <div>
+              <h3>Ofertas</h3>
+              <p>Mejora tu setup por menos.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SETUP ESENCIAL -->
+  <section class="section-block alternate-section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-label"> SETUP ESENCIAL </span>
+
+        <h2>Tres piezas para empezar bien.</h2>
+
+        <p>Una selección simple para mejorar funcionalidad, comodidad y conectividad.</p>
+      </div>
+
+      <div class="row g-4">
+        <div *ngFor="let producto of setupEsencial" class="col-12 col-md-4">
+          <app-product-card [producto]="producto"></app-product-card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOMENDADOS -->
+  <section class="section-block">
+    <div class="container">
+      <div class="section-heading heading-row">
+        <div>
+          <span class="section-label"> RECOMENDADOS </span>
+
+          <h2>Lo que destaca en NEXO.</h2>
+        </div>
+
+        <a routerLink="/productos" class="section-link">
+          Ver todos
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="row g-4">
+        <div *ngFor="let producto of recomendados" class="col-12 col-sm-6 col-lg-3">
+          <app-product-card [producto]="producto"></app-product-card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="section-block alternate-section">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <i class="bi bi-check2-circle"></i>
+            <h3>Selección simple</h3>
+            <p>Menos ruido y productos pensados para setups reales.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <i class="bi bi-grid-1x2"></i>
+            <h3>Todo conectado</h3>
+            <p>Accesorios para completar diferentes partes de tu espacio.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <i class="bi bi-stars"></i>
+            <h3>Función + diseño</h3>
+            <p>Productos que aportan utilidad sin descuidar la estética.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="store-cta">
+    <div class="container text-center">
+      <span class="section-label"> ENCUENTRA TU NEXO </span>
+
+      <h2>El siguiente upgrade de tu setup puede estar aquí.</h2>
+
+      <a routerLink="/productos" class="btn btn-nexo"> Ver productos </a>
+    </div>
+  </section>
+</main>

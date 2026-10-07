@@ -1,1 +1,145 @@
-<p>contacto works!</p>
+<main class="contact-page">
+  <section class="contact-header">
+    <div class="container">
+      <span class="section-label"> CONTACTO </span>
+
+      <h1>
+        Hablemos de tu
+        <span>próximo setup.</span>
+      </h1>
+
+      <p>
+        ¿Tienes alguna consulta sobre nuestros productos? Escríbenos y cuéntanos cómo podemos
+        ayudarte.
+      </p>
+    </div>
+  </section>
+
+  <section class="container contact-content">
+    <div class="row g-5">
+      <!-- INFORMACIÓN -->
+      <div class="col-lg-5">
+        <div class="contact-info">
+          <span class="section-label"> NEXO SETUP </span>
+
+          <h2>Estamos para ayudarte.</h2>
+
+          <p>
+            Puedes escribirnos si tienes dudas sobre productos, disponibilidad o recomendaciones
+            para tu espacio.
+          </p>
+
+          <div class="info-item">
+            <i class="bi bi-envelope"></i>
+
+            <div>
+              <span>Correo</span>
+              <strong>contacto@nexosetup.pe</strong>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="bi bi-geo-alt"></i>
+
+            <div>
+              <span>Ubicación</span>
+              <strong>Lima, Perú</strong>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="bi bi-clock"></i>
+
+            <div>
+              <span>Atención</span>
+              <strong>Lunes a sábado</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMULARIO -->
+      <div class="col-lg-7">
+        <form class="contact-form" (ngSubmit)="enviarFormulario()">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="nombre" class="form-label"> Nombre </label>
+
+              <input
+                id="nombre"
+                name="nombre"
+                type="text"
+                class="form-control"
+                placeholder="Tu nombre"
+                [(ngModel)]="nombre"
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label for="correo" class="form-label"> Correo </label>
+
+              <input
+                id="correo"
+                name="correo"
+                type="email"
+                class="form-control"
+                placeholder="correo@ejemplo.com"
+                [(ngModel)]="correo"
+              />
+            </div>
+
+            <div class="col-12">
+              <label for="motivo" class="form-label"> Motivo </label>
+
+              <select id="motivo" name="motivo" class="form-select" [(ngModel)]="motivo">
+                <option value="">Selecciona una opción</option>
+
+                <option value="producto">Consulta sobre un producto</option>
+
+                <option value="stock">Disponibilidad y stock</option>
+
+                <option value="recomendacion">Recomendación para mi setup</option>
+
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label for="mensaje" class="form-label"> Mensaje </label>
+
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-control"
+                rows="6"
+                placeholder="Cuéntanos cómo podemos ayudarte..."
+                [(ngModel)]="mensaje"
+              ></textarea>
+            </div>
+
+            <div class="col-12">
+              <div *ngIf="errorFormulario" class="form-message error-message">
+                <i class="bi bi-exclamation-circle"></i>
+
+                Completa todos los campos antes de enviar.
+              </div>
+
+              <div *ngIf="formularioEnviado" class="form-message success-message">
+                <i class="bi bi-check-circle"></i>
+
+                Tu mensaje fue registrado correctamente.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-nexo">
+                Enviar mensaje
+                <i class="bi bi-send"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>

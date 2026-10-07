@@ -6,4 +6,28 @@ import { Component } from '@angular/core';
   templateUrl: './contacto.html',
   styleUrl: './contacto.css',
 })
-export class Contacto {}
+export class Contacto {
+  nombre = '';
+  correo = '';
+  motivo = '';
+  mensaje = '';
+
+  formularioEnviado = false;
+  errorFormulario = false;
+
+  enviarFormulario(): void {
+    if (!this.nombre.trim() || !this.correo.trim() || !this.motivo || !this.mensaje.trim()) {
+      this.errorFormulario = true;
+      this.formularioEnviado = false;
+      return;
+    }
+
+    this.errorFormulario = false;
+    this.formularioEnviado = true;
+
+    this.nombre = '';
+    this.correo = '';
+    this.motivo = '';
+    this.mensaje = '';
+  }
+}
