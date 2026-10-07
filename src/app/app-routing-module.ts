@@ -11,6 +11,7 @@ import { MiCuenta } from './pages/mi-cuenta/mi-cuenta';
 import { Login } from './pages/login/login';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { NotFound } from './pages/not-found/not-found';
+import { ProductDetail } from './pages/product-detail/product-detail';
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
     path: 'dashboard',
     component: Dashboard,
     canActivate: [authGuard],
+  },
+  {
+    path: 'productos/:id',
+    component: ProductDetail,
   },
   {
     path: '**',

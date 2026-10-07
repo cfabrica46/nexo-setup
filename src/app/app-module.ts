@@ -19,6 +19,7 @@ import { MiCuenta } from './pages/mi-cuenta/mi-cuenta';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { NotFound } from './pages/not-found/not-found';
 import { ProductSkeleton } from './shared/product-skeleton/product-skeleton';
+import { ProductDetail } from './pages/product-detail/product-detail';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ProductSkeleton } from './shared/product-skeleton/product-skeleton';
     Dashboard,
     NotFound,
     ProductSkeleton,
+    ProductDetail,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient()],

@@ -1,0 +1,161 @@
+<main class="product-detail-page">
+  <div class="container">
+    <!-- LOADING -->
+    <div *ngIf="cargando" class="product-state">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden"> Cargando... </span>
+      </div>
+
+      <p>Cargando producto...</p>
+    </div>
+
+    <!-- ERROR -->
+    <div *ngIf="errorCarga && !cargando" class="product-state">
+      <i class="bi bi-wifi-off"></i>
+
+      <h2>No pudimos cargar el producto</h2>
+
+      <p>Intenta nuevamente en unos momentos.</p>
+
+      <a routerLink="/productos" class="btn btn-outline-nexo"> Volver al catálogo </a>
+    </div>
+
+    <!-- NO ENCONTRADO -->
+    <div *ngIf="productoNoEncontrado && !cargando" class="product-state">
+      <i class="bi bi-box"></i>
+
+      <h2>Producto no encontrado</h2>
+
+      <p>El producto que buscas no existe o ya no está disponible.</p>
+
+      <a routerLink="/productos" class="btn btn-primary-nexo"> Ver catálogo </a>
+    </div>
+
+    <!-- PRODUCTO -->
+    <ng-container *ngIf="producto && !cargando && !errorCarga">
+      <a routerLink="/productos" class="back-link">
+        <i class="bi bi-arrow-left"></i>
+        Volver a productos
+      </a>
+
+      <section class="product-detail">
+        <!-- VISUAL -->
+        <div class="product-gallery">
+          <div class="product-media">
+            <img [src]="producto.imagen" [alt]="producto.nombre" class="product-image" />
+
+            <div class="product-media-overlay"></div>
+
+            <div class="product-media-top">
+              <span class="product-category-badge">
+                {{ producto.categoria }}
+              </span>
+
+              <span *ngIf="producto.oferta" class="offer-badge"> -{{ producto.descuento }}% </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- INFORMACIÓN -->
+        <div class="product-info">
+          <div class="product-heading">
+            <span class="product-eyebrow"> NEXO SETUP </span>
+
+            <h1>
+              {{ producto.nombre }}
+            </h1>
+
+            <p class="product-description">
+              {{ producto.descripcion }}
+            </p>
+          </div>
+
+          <!-- PRECIO -->
+          <div class="purchase-card">
+            <div class="price-block">
+              <span *ngIf="producto.oferta" class="old-price">
+                {{ producto.precio | currency: 'PEN' : 'S/ ' : '1.2-2' }}
+              </span>
+
+              <strong>
+                {{ precioFinal | currency: 'PEN' : 'S/ ' : '1.2-2' }}
+              </strong>
+
+              <span *ngIf="producto.oferta" class="saving-label"> Precio especial NEXO </span>
+            </div>
+
+            <div
+              class="stock-status"
+              [ngClass]="{
+                'stock-ok': producto.stock > 5,
+                'stock-low': producto.stock > 0 && producto.stock <= 5,
+                'stock-empty': producto.stock === 0,
+              }"
+            >
+              <i
+                class="bi"
+                [ngClass]="{
+                  'bi-check-circle-fill': producto.stock > 5,
+
+                  'bi-exclamation-circle-fill': producto.stock > 0 && producto.stock <= 5,
+
+                  'bi-x-circle-fill': producto.stock === 0,
+                }"
+              ></i>
+
+              <span *ngIf="producto.stock > 5"> Disponible · {{ producto.stock }} unidades </span>
+
+              <span *ngIf="producto.stock > 0 && producto.stock <= 5">
+                Últimas {{ producto.stock }} unidades
+              </span>
+
+              <span *ngIf="producto.stock === 0"> Sin stock </span>
+            </div>
+          </div>
+
+          <!-- BENEFICIOS -->
+          <div class="product-benefits">
+            <div class="benefit-item">
+              <span class="benefit-icon">
+                <i class="bi bi-truck"></i>
+              </span>
+
+              <div>
+                <strong>Entrega coordinada</strong>
+                <span>Coordina la entrega de tu producto.</span>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <span class="benefit-icon">
+                <i class="bi bi-shield-check"></i>
+              </span>
+
+              <div>
+                <strong>Compra segura</strong>
+                <span>Experiencia simple y confiable.</span>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <span class="benefit-icon">
+                <i class="bi bi-headset"></i>
+              </span>
+
+              <div>
+                <strong>Soporte NEXO</strong>
+                <span>Atención después de tu compra.</span>
+              </div>
+            </div>
+          </div>
+
+          <a routerLink="/productos" class="catalog-cta">
+            Explorar más productos
+
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </section>
+    </ng-container>
+  </div>
+</main>

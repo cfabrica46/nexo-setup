@@ -58,5 +58,12 @@
         <ng-container *ngIf="producto.stock === 0"> Sin stock </ng-container>
       </span>
     </div>
+
+    <!-- VER PRODUCTO -->
+    <a [routerLink]="['/productos', producto.id]" class="product-detail-link">
+      Ver producto
+
+      <i class="bi bi-arrow-right"></i>
+    </a>
   </div>
 </div>
