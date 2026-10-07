@@ -28,6 +28,10 @@
   color: #9ca3af;
   font-weight: 500;
   transition: 180ms ease;
+
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .nav-link:hover,
