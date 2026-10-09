@@ -1,4 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:...'); */
+
+/* Tema claro NEXO · NEOBRUTALISMO */
+:root[data-theme='light'] {
+  --color-bg: #fff4d6;
+  --color-surface: #ffffff;
+  --color-surface-secondary: #ffe08a;
+  --color-surface-alt: #ffeaa8;
+
+  --color-primary: #2d5bff;
+  --color-primary-hover: #1f46d6;
+  --color-on-primary: #ffffff;
+  --color-accent-text: #1f46d6;
+
+  --color-yellow: #ffd33d;
+  --color-pink: #ff5c9e;
+  --color-green: #35d49a;
+
+  --color-text: #0a0a0a;
+  --color-text-soft: #262626;
+  --color-muted: #4a4a4a;
+  --color-subtle: #6e6e6e;
+  --color-border: #0a0a0a;
+  --color-border-strong: #0a0a0a;
+  --key-edge: #0a0a0a;
+
+  --color-success: #1f9d63;
+  --color-danger: #e0263f;
+  --color-warning: #d98b00;
+  --color-success-text: #11713f;
+  --color-danger-text: #b3162d;
+  --color-warning-text: #8a5600;
+
+  color-scheme: light;
+}
+
+/* Tema oscuro */
+:root,
+:root[data-theme='dark'] {
+  --color-bg: #121212;
+  --color-surface: #1e1e1e;
+  --color-surface-secondary: #2a2a2a;
+  --color-surface-alt: #181818;
+
+  --color-primary: #7b9bff;
+  --color-primary-hover: #9db4ff;
+  --color-on-primary: #0a0a0a;
+  --color-accent-text: #9db4ff;
+
+  --color-yellow: #ffd33d;
+  --color-pink: #ff5c9e;
+  --color-green: #35d49a;
+
+  --color-text: #f5f0e1;
+  --color-text-soft: #ddd7c6;
+  --color-muted: #a8a395;
+  --color-subtle: #7c786b;
+  --color-border: #f5f0e1;
+  --color-border-strong: #f5f0e1;
+  --key-edge: #f5f0e1;
+
+  --color-success: #35d49a;
+  --color-danger: #ff5c6c;
+  --color-warning: #ffb020;
+  --color-success-text: #86efac;
+  --color-danger-text: #ff9aa5;
+  --color-warning-text: #fcd34d;
+
+  color-scheme: dark;
+}
 
 :root {
   --color-bg: #0b0d12;
@@ -121,4 +190,151 @@ img {
 
     transition: none;
   }
+}
+
+/* Fondo de puntos */
+body {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--key-edge) 22%, transparent) 1.4px,
+    transparent 1.4px
+  );
+  background-size: 24px 24px;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+h1,
+h2 {
+  font-family: var(--font-heavy);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.ph-bold {
+  vertical-align: -0.14em;
+}
+
+/* Botones: borde grueso, sombra dura y efecto de presionar */
+.btn:not(.nav-link) {
+  border: 3px solid var(--key-edge);
+  border-radius: 10px;
+  box-shadow: 4px 4px 0 var(--key-edge);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition:
+    transform 90ms ease,
+    box-shadow 90ms ease,
+    background-color 120ms ease,
+    color 120ms ease;
+}
+
+.btn:not(.nav-link):hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--key-edge);
+}
+
+.btn:not(.nav-link):active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--key-edge);
+}
+
+/* Etiqueta tipo sticker */
+.spec-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  color: #0a0a0a;
+  background: var(--color-yellow);
+  border: 2px solid var(--key-edge);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Bandas en movimiento (estilo anuncio) */
+.marquee-wrap {
+  position: relative;
+  padding: 2.5rem 0;
+  overflow: hidden;
+}
+
+.marquee {
+  overflow: hidden;
+  color: #0a0a0a;
+  border-top: 3px solid var(--key-edge);
+  border-bottom: 3px solid var(--key-edge);
+}
+
+.marquee-a {
+  background: var(--color-pink);
+  transform: rotate(-1deg);
+}
+
+.marquee-b {
+  margin-top: 0.9rem;
+  background: var(--color-yellow);
+  transform: rotate(-1deg);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 14s linear infinite;
+}
+
+.marquee-b .marquee-track {
+  animation-direction: reverse;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-track span {
+  padding: 0.7rem 1.4rem;
+  font-family: var(--font-heavy);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+
+    transform: none;
+
+    transition: none;
+  }
+}
+
+/* Archivo Black ya es negrita: evita el "falso bold" */
+h1,
+h2 {
+  font-weight: 400 !important;
 }
