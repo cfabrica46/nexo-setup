@@ -12,7 +12,7 @@
   <section class="container products-content">
     <div class="catalog-toolbar">
       <div class="search-box">
-        <i class="bi bi-search"></i>
+        <i class="ph-bold ph-magnifying-glass"></i>
 
         <input
           type="text"
@@ -32,7 +32,7 @@
           }"
           (click)="filtrarCategoria(categoria)"
         >
-          {{ categoria }}
+          <i class="ph-bold me-1" [ngClass]="iconos[categoria]"></i>{{ categoria }}
         </button>
       </div>
     </div>
@@ -44,7 +44,7 @@
     </div>
 
     <div *ngIf="errorCarga" class="catalog-message">
-      <i class="bi bi-exclamation-circle"></i>
+      <i class="ph-bold ph-warning-circle"></i>
 
       <h2>No pudimos cargar los productos</h2>
 
@@ -66,7 +66,7 @@
       </div>
 
       <div *ngIf="productosFiltrados.length === 0" class="catalog-message">
-        <i class="bi bi-search"></i>
+        <i class="ph-bold ph-magnifying-glass"></i>
 
         <h2>No encontramos productos</h2>
 

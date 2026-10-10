@@ -1,0 +1,99 @@
+<main class="cart-page">
+  <div class="container">
+    <span class="spec-tag"><i class="ph-bold ph-shopping-cart"></i> Tu carrito</span>
+    <h1>Tu carrito</h1>
+
+    <!-- Compra simulada -->
+    <div *ngIf="compraRealizada" class="cart-empty">
+      <i class="ph-bold ph-check-circle"></i>
+      <h2>¡Compra simulada!</h2>
+      <p>Esto es una demostración: no se realizó ningún pago ni se guardó ningún pedido.</p>
+      <a routerLink="/productos" class="btn cart-btn-primary">Seguir comprando</a>
+    </div>
+
+    <ng-container *ngIf="!compraRealizada">
+      <ng-container *ngIf="items$ | async as items">
+        <!-- Vacío -->
+        <div *ngIf="items.length === 0" class="cart-empty">
+          <i class="ph-bold ph-shopping-cart"></i>
+          <h2>Tu carrito está vacío</h2>
+          <p>Agrega teclados, mouse y accesorios para armar tu setup.</p>
+          <a routerLink="/productos" class="btn cart-btn-primary">
+            <i class="ph-bold ph-magnifying-glass"></i>
+            Ver productos
+          </a>
+        </div>
+
+        <!-- Con productos -->
+        <div *ngIf="items.length > 0" class="row g-4 mt-1">
+          <div class="col-12 col-lg-8">
+            <article *ngFor="let item of items" class="cart-item">
+              <img [src]="item.imagen" [alt]="item.nombre" />
+
+              <div class="cart-item-info">
+                <span class="spec-tag">{{ item.categoria }}</span>
+                <h3>{{ item.nombre }}</h3>
+                <span class="cart-item-price">
+                  {{ item.precio | currency: 'PEN' : 'S/ ' : '1.2-2' }}
+                </span>
+              </div>
+
+              <div class="cart-item-actions">
+                <div class="qty">
+                  <button type="button" (click)="cambiar(item, -1)" aria-label="Quitar uno">
+                    <i class="ph-bold ph-minus"></i>
+                  </button>
+                  <span>{{ item.cantidad }}</span>
+                  <button
+                    type="button"
+                    (click)="cambiar(item, 1)"
+                    [disabled]="item.cantidad >= item.stock"
+                    aria-label="Agregar uno"
+                  >
+                    <i class="ph-bold ph-plus"></i>
+                  </button>
+                </div>
+
+                <strong class="cart-item-subtotal">
+                  {{ item.precio * item.cantidad | currency: 'PEN' : 'S/ ' : '1.2-2' }}
+                </strong>
+
+                <button type="button" class="cart-remove" (click)="quitar(item)" aria-label="Eliminar">
+                  <i class="ph-bold ph-trash"></i>
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-lg-4">
+            <aside class="cart-summary">
+              <h2>Resumen</h2>
+
+              <div class="cart-row">
+                <span>Productos</span>
+                <strong>{{ items.length }}</strong>
+              </div>
+
+              <div class="cart-row cart-total">
+                <span>Total</span>
+                <strong>{{ total$ | async | currency: 'PEN' : 'S/ ' : '1.2-2' }}</strong>
+              </div>
+
+              <button type="button" class="btn cart-btn-primary w-100" (click)="finalizar()">
+                <i class="ph-bold ph-credit-card"></i>
+                Finalizar compra
+              </button>
+
+              <button type="button" class="btn cart-btn-ghost w-100" (click)="vaciar()">
+                <i class="ph-bold ph-trash"></i>
+                Vaciar carrito
+              </button>
+
+              <small>Compra simulada: no se procesan pagos reales.</small>
+            </aside>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</main>

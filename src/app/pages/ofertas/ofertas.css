@@ -1,18 +1,17 @@
 .offers-page {
   min-height: 100vh;
-  color: #f5f7fa;
-  background: #0b0d12;
+  color: var(--color-text);
 }
 
 .offers-hero {
   padding: 5rem 0;
-  border-bottom: 1px solid #272b38;
+  border-bottom: 3px solid var(--key-edge);
   background:
-    radial-gradient(circle at 75% 30%, rgba(124, 92, 252, 0.18), transparent 35%), #0b0d12;
+    radial-gradient(circle at 75% 30%, color-mix(in srgb, var(--color-primary) 18%, transparent), transparent 35%), var(--color-bg);
 }
 
 .section-label {
-  color: #7c5cfc;
+  color: var(--color-primary);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -26,13 +25,13 @@
 }
 
 .offers-hero h1 span {
-  color: #7c5cfc;
+  color: var(--color-primary);
 }
 
 .offers-hero p {
   max-width: 600px;
   margin: 0;
-  color: #9ca3af;
+  color: var(--color-muted);
   font-size: 1.05rem;
 }
 
@@ -55,29 +54,29 @@
 }
 
 .offers-count {
-  color: #9ca3af;
+  color: var(--color-muted);
 }
 
 .offers-message {
   padding: 5rem 1rem;
-  color: #9ca3af;
+  color: var(--color-muted);
   text-align: center;
 }
 
 .offers-message i {
   display: block;
   margin-bottom: 1rem;
-  color: #7c5cfc;
+  color: var(--color-primary);
   font-size: 2rem;
 }
 
 .offers-message h2 {
-  color: #f5f7fa;
+  color: var(--color-text);
   font-size: 1.4rem;
 }
 
 .spinner-border {
-  color: #7c5cfc;
+  color: var(--color-primary);
 }
 
 .offers-cta {
@@ -87,9 +86,10 @@
   gap: 2rem;
   margin-top: 5rem;
   padding: 2.5rem;
-  background: #151821;
-  border: 1px solid #272b38;
+  background: var(--color-surface);
+  border: 3px solid var(--key-edge);
   border-radius: 16px;
+  box-shadow: 5px 5px 0 var(--key-edge);
 }
 
 .offers-cta h2 {
@@ -99,23 +99,23 @@
 
 .offers-cta p {
   margin: 0;
-  color: #9ca3af;
+  color: var(--color-muted);
 }
 
 .btn-nexo {
   flex-shrink: 0;
   padding: 0.8rem 1.2rem;
-  color: #fff;
-  background: #7c5cfc;
-  border: 1px solid #7c5cfc;
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
   border-radius: 10px;
   font-weight: 600;
 }
 
 .btn-nexo:hover {
-  color: #fff;
-  background: #6d4df0;
-  border-color: #6d4df0;
+  color: var(--color-on-primary);
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
 }
 
 @media (max-width: 767px) {

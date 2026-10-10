@@ -30,7 +30,7 @@
           </p>
 
           <div class="info-item">
-            <i class="bi bi-envelope"></i>
+            <i class="ph-bold ph-envelope-simple"></i>
 
             <div>
               <span>Correo</span>
@@ -39,7 +39,7 @@
           </div>
 
           <div class="info-item">
-            <i class="bi bi-geo-alt"></i>
+            <i class="ph-bold ph-map-pin"></i>
 
             <div>
               <span>Ubicación</span>
@@ -48,7 +48,7 @@
           </div>
 
           <div class="info-item">
-            <i class="bi bi-clock"></i>
+            <i class="ph-bold ph-clock"></i>
 
             <div>
               <span>Atención</span>
@@ -63,7 +63,7 @@
         <form class="contact-form" (ngSubmit)="enviarFormulario()">
           <div class="row g-3">
             <div class="col-md-6">
-              <label for="nombre" class="form-label"> Nombre </label>
+              <label for="nombre" class="form-label"><i class="ph-bold ph-user me-1"></i>Nombre</label>
 
               <input
                 id="nombre"
@@ -76,7 +76,7 @@
             </div>
 
             <div class="col-md-6">
-              <label for="correo" class="form-label"> Correo </label>
+              <label for="correo" class="form-label"><i class="ph-bold ph-envelope-simple me-1"></i>Correo</label>
 
               <input
                 id="correo"
@@ -89,7 +89,7 @@
             </div>
 
             <div class="col-12">
-              <label for="motivo" class="form-label"> Motivo </label>
+              <label for="motivo" class="form-label"><i class="ph-bold ph-chat-text me-1"></i>Motivo</label>
 
               <select id="motivo" name="motivo" class="form-select" [(ngModel)]="motivo">
                 <option value="">Selecciona una opción</option>
@@ -105,7 +105,7 @@
             </div>
 
             <div class="col-12">
-              <label for="mensaje" class="form-label"> Mensaje </label>
+              <label for="mensaje" class="form-label"><i class="ph-bold ph-pencil-simple me-1"></i>Mensaje</label>
 
               <textarea
                 id="mensaje"
@@ -119,13 +119,13 @@
 
             <div class="col-12">
               <div *ngIf="errorFormulario" class="form-message error-message">
-                <i class="bi bi-exclamation-circle"></i>
+                <i class="ph-bold ph-warning-circle"></i>
 
                 Completa todos los campos antes de enviar.
               </div>
 
               <div *ngIf="formularioEnviado" class="form-message success-message">
-                <i class="bi bi-check-circle"></i>
+                <i class="ph-bold ph-check-circle"></i>
 
                 Tu mensaje fue registrado correctamente.
               </div>
@@ -134,7 +134,7 @@
             <div class="col-12">
               <button type="submit" class="btn btn-nexo">
                 Enviar mensaje
-                <i class="bi bi-send"></i>
+                <i class="ph-bold ph-paper-plane-tilt"></i>
               </button>
             </div>
           </div>

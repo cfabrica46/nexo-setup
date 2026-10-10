@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ProductoService } from '../../core/services/producto';
+import { CartService } from '../../core/services/cart';
 import { Producto } from '../../models/producto.model';
 
 @Component({
@@ -22,7 +23,20 @@ export class ProductDetail implements OnInit {
     private route: ActivatedRoute,
     private productoService: ProductoService,
     private cdr: ChangeDetectorRef,
+    private cartService: CartService,
   ) {}
+
+  agregado = false;
+
+  agregarAlCarrito(): void {
+    if (this.producto && this.cartService.agregar(this.producto)) {
+      this.agregado = true;
+      setTimeout(() => {
+        this.agregado = false;
+        this.cdr.markForCheck();
+      }, 1400);
+    }
+  }
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));

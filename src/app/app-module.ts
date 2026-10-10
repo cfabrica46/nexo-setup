@@ -20,6 +20,7 @@ import { Dashboard } from './pages/dashboard/dashboard';
 import { NotFound } from './pages/not-found/not-found';
 import { ProductSkeleton } from './shared/product-skeleton/product-skeleton';
 import { ProductDetail } from './pages/product-detail/product-detail';
+import { Carrito } from './pages/carrito/carrito';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ProductDetail } from './pages/product-detail/product-detail';
     NotFound,
     ProductSkeleton,
     ProductDetail,
+    Carrito,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient()],

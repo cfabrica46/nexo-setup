@@ -1,74 +1,158 @@
 .nexo-navbar {
-  background: #0b0d12;
-  border-bottom: 1px solid #272b38;
-  padding: 0.9rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background: var(--color-surface);
+  border-bottom: 3px solid var(--key-edge);
+  padding: 0.8rem 0;
+}
+
+.theme-toggle,
+.cart-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-text);
+  background: var(--color-yellow);
+  border: 3px solid var(--key-edge);
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 var(--key-edge);
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition:
+    transform 90ms ease,
+    box-shadow 90ms ease;
+}
+
+.theme-toggle {
+  color: #0a0a0a;
+}
+
+.cart-link {
+  color: #0a0a0a;
+  background: var(--color-green);
+}
+
+.theme-toggle:hover,
+.cart-link:hover {
+  color: #0a0a0a;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--key-edge);
+}
+
+.theme-toggle:active,
+.cart-link:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--key-edge);
+}
+
+.cart-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  min-width: 22px;
+  padding: 0 5px;
+  color: #fff;
+  background: var(--color-pink);
+  border: 2px solid var(--key-edge);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
 }
 
 .nexo-brand {
   display: flex;
   flex-direction: column;
   line-height: 0.85;
-  color: #f5f7fa;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  color: var(--color-text);
+  font-family: var(--font-heavy);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
 }
 
 .nexo-brand:hover {
-  color: #f5f7fa;
+  color: var(--color-text);
 }
 
 .nexo-brand small {
   margin-top: 0.35rem;
-  color: #7c5cfc;
+  color: var(--color-primary);
   font-size: 0.6rem;
   letter-spacing: 0.3em;
 }
 
+.navbar-nav {
+  gap: 0.4rem;
+}
+
 .nav-link {
-  color: #9ca3af;
-  font-weight: 500;
-  transition: 180ms ease;
-
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  padding: 0.5rem 1rem !important;
+  color: var(--color-text);
+  border: 3px solid transparent;
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition:
+    transform 90ms ease,
+    box-shadow 90ms ease,
+    background-color 90ms ease;
 }
 
-.nav-link:hover,
-.nav-link.active {
-  color: #f5f7fa;
+/* Al pasar el mouse, el enlace se vuelve un botón */
+.nav-link:hover {
+  color: #0a0a0a;
+  background: var(--color-yellow);
+  border-color: var(--key-edge);
+  box-shadow: 3px 3px 0 var(--key-edge);
+  transform: translate(-2px, -2px);
 }
 
 .nav-link.active {
-  color: #7c5cfc;
+  color: #fff;
+  background: var(--color-primary);
+  border-color: var(--key-edge);
+  box-shadow: 3px 3px 0 var(--key-edge);
+}
+
+[data-theme='dark'] .nav-link.active {
+  color: #0a0a0a;
 }
 
 .btn-account {
-  color: #f5f7fa;
-  border: 1px solid #272b38;
+  color: var(--color-text);
+  border: 3px solid var(--key-edge);
 }
 
 .btn-account:hover {
-  color: #f5f7fa;
-  background: #1d202b;
-  border-color: #7c5cfc;
+  color: var(--color-text);
+  background: var(--color-surface-secondary);
+  border-color: var(--color-primary);
 }
 
 .btn-login {
-  color: #fff;
-  background: #7c5cfc;
-  border: 1px solid #7c5cfc;
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
 }
 
 .btn-login:hover {
-  color: #fff;
-  background: #6d4df0;
-  border-color: #6d4df0;
+  color: var(--color-on-primary);
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
 }
 
 .navbar-toggler {
-  color: #f5f7fa;
-  border: 1px solid #272b38;
+  color: var(--color-text);
+  border: 3px solid var(--key-edge);
   font-size: 1.5rem;
 }
 
@@ -79,6 +163,7 @@
 @media (max-width: 991px) {
   .navbar-nav {
     padding: 1rem 0;
+    gap: 0.25rem;
   }
 
   .navbar-actions {
@@ -99,10 +184,10 @@
 
   padding: 0.65rem 0.9rem;
 
-  color: #f5f7fa;
-  background: #151821;
+  color: var(--color-text);
+  background: var(--color-surface);
 
-  border: 1px solid #272b38;
+  border: 3px solid var(--key-edge);
   border-radius: 9px;
 
   font-size: 0.9rem;
@@ -114,12 +199,12 @@
 }
 
 .account-trigger:hover {
-  background: #1d202b;
-  border-color: #7c5cfc;
+  background: var(--color-surface-secondary);
+  border-color: var(--color-primary);
 }
 
 .account-trigger i {
-  color: #a78bfa;
+  color: var(--color-accent-text);
 }
 
 .nexo-dropdown {
@@ -128,10 +213,10 @@
   margin-top: 0.65rem !important;
   padding: 0.5rem;
 
-  color: #f5f7fa;
-  background: #151821;
+  color: var(--color-text);
+  background: var(--color-surface);
 
-  border: 1px solid #272b38;
+  border: 3px solid var(--key-edge);
   border-radius: 12px;
 
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
@@ -145,7 +230,7 @@
 }
 
 .dropdown-user strong {
-  color: #f5f7fa;
+  color: var(--color-text);
 
   font-size: 0.85rem;
 }
@@ -153,13 +238,13 @@
 .dropdown-user span {
   margin-top: 0.15rem;
 
-  color: #9ca3af;
+  color: var(--color-muted);
 
   font-size: 0.72rem;
 }
 
 .nexo-dropdown .dropdown-divider {
-  border-color: #272b38;
+  border-color: var(--color-border);
 }
 
 .nexo-dropdown .dropdown-item {
@@ -170,7 +255,7 @@
 
   padding: 0.65rem 0.75rem;
 
-  color: #c5cad3;
+  color: var(--color-text-soft);
   background: transparent;
 
   border-radius: 7px;
@@ -183,16 +268,16 @@
 }
 
 .nexo-dropdown .dropdown-item:hover {
-  color: #f5f7fa;
-  background: #1d202b;
+  color: var(--color-text);
+  background: var(--color-surface-secondary);
 }
 
 .nexo-dropdown .dropdown-item i {
-  color: #8b7cf6;
+  color: var(--color-accent-text);
 }
 
 .nexo-dropdown .logout-item:hover {
-  color: #fca5a5;
+  color: var(--color-danger-text);
   background: rgba(239, 68, 68, 0.08);
 }
 
@@ -230,42 +315,42 @@
 .account-link {
   padding: 0.6rem 0.9rem;
 
-  color: #f5f7fa !important;
+  color: var(--color-text) !important;
   background: transparent;
 
-  border: 1px solid #272b38;
+  border: 3px solid var(--key-edge);
 }
 
 .account-link i {
-  color: #9ca3af;
+  color: var(--color-muted);
 }
 
 .account-link:hover {
-  color: #ffffff !important;
+  color: var(--color-text) !important;
 
-  background: #151821;
-  border-color: #3a3f50;
+  background: var(--color-surface);
+  border-color: var(--color-border-strong);
 }
 
 .account-link:hover i {
-  color: #a78bfa;
+  color: var(--color-accent-text);
 }
 
 /* Ingresar */
 .login-link {
   padding: 0.6rem 1rem;
 
-  color: #ffffff !important;
-  background: #7c5cfc;
+  color: var(--color-on-primary) !important;
+  background: var(--color-primary);
 
-  border: 1px solid #7c5cfc;
+  border: 1px solid var(--color-primary);
 }
 
 .login-link:hover {
-  color: #ffffff !important;
+  color: var(--color-on-primary) !important;
 
-  background: #6d4df0;
-  border-color: #6d4df0;
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
 
   transform: translateY(-1px);
 }

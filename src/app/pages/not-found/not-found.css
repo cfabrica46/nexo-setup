@@ -4,7 +4,7 @@
   align-items: center;
   color: var(--color-text);
   background:
-    radial-gradient(circle at 50% 45%, rgba(124, 92, 252, 0.16), transparent 35%), var(--color-bg);
+    radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--color-primary) 16%, transparent), transparent 35%), var(--color-bg);
 }
 
 .not-found-content {
@@ -53,7 +53,7 @@
 
 .btn-home {
   padding: 0.8rem 1.25rem;
-  color: #fff;
+  color: var(--color-on-primary);
   background: var(--color-primary);
   border: 1px solid var(--color-primary);
   border-radius: 10px;
@@ -61,7 +61,7 @@
 }
 
 .btn-home:hover {
-  color: #fff;
+  color: var(--color-on-primary);
   background: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
 }

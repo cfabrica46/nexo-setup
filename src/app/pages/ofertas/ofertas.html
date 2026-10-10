@@ -22,7 +22,7 @@
     </div>
 
     <div *ngIf="errorCarga" class="offers-message">
-      <i class="bi bi-exclamation-circle"></i>
+      <i class="ph-bold ph-warning-circle"></i>
 
       <h2>No pudimos cargar las ofertas</h2>
 
@@ -53,7 +53,7 @@
       </div>
 
       <div *ngIf="productosEnOferta.length === 0" class="offers-message">
-        <i class="bi bi-tag"></i>
+        <i class="ph-bold ph-tag"></i>
 
         <h2>No hay ofertas disponibles</h2>
 
@@ -70,7 +70,7 @@
 
       <a routerLink="/productos" class="btn btn-nexo">
         Ver todos los productos
-        <i class="bi bi-arrow-right"></i>
+        <i class="ph-bold ph-arrow-right"></i>
       </a>
     </div>
   </section>

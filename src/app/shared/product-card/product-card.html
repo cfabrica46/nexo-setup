@@ -5,12 +5,14 @@
   }"
 >
   <div class="product-image-wrapper">
-    <span *ngIf="producto.oferta" class="offer-badge"> -{{ producto.descuento }}% </span>
+    <span *ngIf="producto.oferta" class="offer-badge"> <i class="ph-bold ph-lightning"></i> -{{ producto.descuento }}% </span>
 
     <img [src]="producto.imagen" [alt]="producto.nombre" class="product-image" />
   </div>
 
   <div class="product-content">
+    <span class="product-sku">REF. NX-{{ producto.id | number: '3.0-0' }}</span>
+
     <span class="product-category">
       {{ producto.categoria }}
     </span>
@@ -49,21 +51,37 @@
           'stock-empty': producto.stock === 0,
         }"
       >
-        <ng-container *ngIf="producto.stock > 5"> En stock: {{ producto.stock }} </ng-container>
-
-        <ng-container *ngIf="producto.stock > 0 && producto.stock <= 5">
-          Últimas {{ producto.stock }} unidades
+        <ng-container *ngIf="producto.stock > 5">
+          <i class="ph-bold ph-check-circle me-1"></i>En stock: {{ producto.stock }}
         </ng-container>
 
-        <ng-container *ngIf="producto.stock === 0"> Sin stock </ng-container>
+        <ng-container *ngIf="producto.stock > 0 && producto.stock <= 5">
+          <i class="ph-bold ph-warning-circle me-1"></i>Últimas {{ producto.stock }} unidades
+        </ng-container>
+
+        <ng-container *ngIf="producto.stock === 0">
+          <i class="ph-bold ph-x-circle me-1"></i>Sin stock
+        </ng-container>
       </span>
     </div>
+
+    <!-- AGREGAR AL CARRITO -->
+    <button
+      type="button"
+      class="btn add-cart-btn"
+      [ngClass]="{ 'is-added': agregado }"
+      [disabled]="producto.stock === 0"
+      (click)="agregar()"
+    >
+      <i class="ph-bold" [ngClass]="agregado ? 'ph-check' : 'ph-shopping-cart'"></i>
+      {{ producto.stock === 0 ? 'Sin stock' : agregado ? '¡Agregado!' : 'Agregar' }}
+    </button>
 
     <!-- VER PRODUCTO -->
     <a [routerLink]="['/productos', producto.id]" class="product-detail-link">
       Ver producto
 
-      <i class="bi bi-arrow-right"></i>
+      <i class="ph-bold ph-arrow-right"></i>
     </a>
   </div>
 </div>

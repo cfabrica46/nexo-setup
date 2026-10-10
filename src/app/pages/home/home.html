@@ -1,80 +1,84 @@
 <main class="home-page">
-  <!-- HERO -->
-  <section class="hero">
+  <!-- HERO (retro keycap) -->
+  <section class="hero-bento">
     <div class="container">
-      <div class="row align-items-center min-vh-hero">
-        <div class="col-lg-7">
-          <span class="hero-label"> NEXO SETUP </span>
+      <div class="bento">
+        <!-- Bloque principal -->
+        <article class="bento-main">
+          <div class="bento-main-content">
+            <span class="spec-tag"><i class="ph-bold ph-keyboard"></i> Setup · Accesorios</span>
 
-          <h1>
-            Tu espacio.<br />
-            <span>Tu ritmo.</span>
-          </h1>
+            <h1>
+              Tu espacio.<br />
+              <span class="accent">Tu ritmo.</span>
+            </h1>
 
-          <p class="hero-description">
-            Accesorios para trabajar, estudiar y crear un setup que se sienta realmente tuyo.
-          </p>
+            <p>Accesorios para trabajar, estudiar y crear un setup que se sienta realmente tuyo.</p>
 
-          <div class="hero-actions">
-            <a routerLink="/productos" class="btn btn-primary-nexo">
-              Explorar productos
-              <i class="bi bi-arrow-right"></i>
-            </a>
-
-            <a routerLink="/tienda" class="btn btn-secondary-nexo"> Conocer NEXO </a>
+            <div class="bento-actions">
+              <a routerLink="/productos" class="btn bento-btn-solid">
+                <i class="ph-bold ph-shopping-bag"></i>
+                Explorar productos
+              </a>
+              <a routerLink="/tienda" class="btn bento-btn-ghost">
+                <i class="ph-bold ph-compass"></i>
+                Conocer NEXO
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div class="col-lg-5 d-none d-lg-block">
-          <article *ngIf="heroProducto" class="hero-showcase">
+          <div class="bento-photo">
             <img
-              class="hero-showcase-image"
+              *ngIf="heroProducto"
               [src]="heroProducto.imagen"
               [alt]="heroProducto.nombre"
             />
+            <span *ngIf="heroProducto" class="spec-tag bento-photo-tag">
+              {{ heroProducto.nombre }}
+            </span>
+          </div>
+        </article>
 
-            <div class="hero-showcase-shade"></div>
+        <!-- Columna lateral -->
+        <div class="bento-sides">
+          <div class="bento-strip">
+            <span class="spec-tag"><i class="ph-bold ph-sparkle"></i> Catálogo</span>
+            <strong>6 categorías</strong>
+            <span>para armar tu setup completo</span>
+          </div>
 
-            <div class="hero-showcase-top">
-              <span class="hero-featured-label"> NEXO FEATURED </span>
-
-              <span *ngIf="heroProducto.oferta" class="hero-offer-badge">
-                -{{ heroProducto.descuento }}%
-              </span>
-            </div>
-
-            <div class="hero-showcase-content">
-              <div class="hero-product-meta">
-                <span>
-                  {{ heroProducto.categoria }}
-                </span>
-
-                <span class="hero-stock" *ngIf="heroProducto.stock > 0"> Disponible </span>
-              </div>
-
-              <h3>
-                {{ heroProducto.nombre }}
-              </h3>
-
-              <div class="hero-showcase-bottom">
-                <span class="hero-product-caption"> Diseñado para elevar tu setup. </span>
-
-                <div class="hero-product-price">
-                  <span *ngIf="heroProducto.oferta" class="hero-old-price">
-                    {{ heroProducto.precio | currency: 'S/ ' : 'symbol' : '1.2-2' }}
-                  </span>
-
-                  <strong>
-                    {{ heroPrecioFinal | currency: 'S/ ' : 'symbol' : '1.2-2' }}
-                  </strong>
-                </div>
-              </div>
-            </div>
-          </article>
+          <div class="bento-note">
+            <span class="spec-tag"><i class="ph-bold ph-lightning"></i> Mayores ofertas</span>
+            <p>Descubre los productos con más descuento y arma tu escritorio ahorrando.</p>
+            <a routerLink="/ofertas" class="bento-note-link">
+              Ver todas las ofertas <i class="ph-bold ph-arrow-right"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- BANDA -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee marquee-a">
+      <div class="marquee-track">
+        <span>HASTA -20% EN OFERTAS ✦ NUEVOS TECLADOS ✦ ARMA TU SETUP ✦</span>
+        <span>HASTA -20% EN OFERTAS ✦ NUEVOS TECLADOS ✦ ARMA TU SETUP ✦</span>
+        <span>HASTA -20% EN OFERTAS ✦ NUEVOS TECLADOS ✦ ARMA TU SETUP ✦</span>
+        <span>HASTA -20% EN OFERTAS ✦ NUEVOS TECLADOS ✦ ARMA TU SETUP ✦</span>
+      </div>
+    </div>
+
+    <div class="marquee marquee-b">
+      <div class="marquee-track">
+        <span>TECLADOS ✦ MOUSE ✦ AUDIO ✦ ESCRITORIO ✦ CONECTIVIDAD ✦ ILUMINACIÓN ✦</span>
+        <span>TECLADOS ✦ MOUSE ✦ AUDIO ✦ ESCRITORIO ✦ CONECTIVIDAD ✦ ILUMINACIÓN ✦</span>
+        <span>TECLADOS ✦ MOUSE ✦ AUDIO ✦ ESCRITORIO ✦ CONECTIVIDAD ✦ ILUMINACIÓN ✦</span>
+        <span>TECLADOS ✦ MOUSE ✦ AUDIO ✦ ESCRITORIO ✦ CONECTIVIDAD ✦ ILUMINACIÓN ✦</span>
+      </div>
+    </div>
+  </div>
 
   <!-- CATEGORÍAS -->
   <section class="section-block">
@@ -88,49 +92,49 @@
 
         <a routerLink="/productos" class="section-link">
           Ver catálogo
-          <i class="bi bi-arrow-right"></i>
+          <i class="ph-bold ph-arrow-right"></i>
         </a>
       </div>
 
       <div class="row g-3">
         <div class="col-6 col-md-4 col-lg-2">
           <a routerLink="/productos" class="category-card">
-            <i class="bi bi-keyboard"></i>
+            <i class="ph-bold ph-keyboard"></i>
             <span>Teclados</span>
           </a>
         </div>
 
         <div class="col-6 col-md-4 col-lg-2">
           <a routerLink="/productos" class="category-card">
-            <i class="bi bi-mouse"></i>
+            <i class="ph-bold ph-mouse"></i>
             <span>Mouse</span>
           </a>
         </div>
 
         <div class="col-6 col-md-4 col-lg-2">
           <a routerLink="/productos" class="category-card">
-            <i class="bi bi-headphones"></i>
+            <i class="ph-bold ph-headphones"></i>
             <span>Audio</span>
           </a>
         </div>
 
         <div class="col-6 col-md-4 col-lg-2">
           <a routerLink="/productos" class="category-card">
-            <i class="bi bi-display"></i>
+            <i class="ph-bold ph-desktop"></i>
             <span>Escritorio</span>
           </a>
         </div>
 
         <div class="col-6 col-md-4 col-lg-2">
           <a routerLink="/productos" class="category-card">
-            <i class="bi bi-usb-symbol"></i>
+            <i class="ph-bold ph-usb"></i>
             <span>Conectividad</span>
           </a>
         </div>
 
         <div class="col-6 col-md-4 col-lg-2">
           <a routerLink="/productos" class="category-card">
-            <i class="bi bi-lamp"></i>
+            <i class="ph-bold ph-lightbulb"></i>
             <span>Iluminación</span>
           </a>
         </div>
@@ -176,7 +180,7 @@
 
         <a routerLink="/ofertas" class="btn btn-primary-nexo">
           Ver ofertas
-          <i class="bi bi-arrow-right"></i>
+          <i class="ph-bold ph-arrow-right"></i>
         </a>
       </div>
     </div>
@@ -188,7 +192,7 @@
       <div class="row g-3">
         <div class="col-md-4">
           <div class="benefit-card">
-            <i class="bi bi-box-seam"></i>
+            <i class="ph-bold ph-package"></i>
 
             <div>
               <h3>Productos seleccionados</h3>
@@ -199,7 +203,7 @@
 
         <div class="col-md-4">
           <div class="benefit-card">
-            <i class="bi bi-grid"></i>
+            <i class="ph-bold ph-squares-four"></i>
 
             <div>
               <h3>Todo en un solo lugar</h3>
@@ -213,7 +217,7 @@
 
         <div class="col-md-4">
           <div class="benefit-card">
-            <i class="bi bi-stars"></i>
+            <i class="ph-bold ph-sparkle"></i>
 
             <div>
               <h3>Diseño que suma</h3>

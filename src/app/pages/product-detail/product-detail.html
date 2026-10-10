@@ -11,7 +11,7 @@
 
     <!-- ERROR -->
     <div *ngIf="errorCarga && !cargando" class="product-state">
-      <i class="bi bi-wifi-off"></i>
+      <i class="ph-bold ph-wifi-slash"></i>
 
       <h2>No pudimos cargar el producto</h2>
 
@@ -22,7 +22,7 @@
 
     <!-- NO ENCONTRADO -->
     <div *ngIf="productoNoEncontrado && !cargando" class="product-state">
-      <i class="bi bi-box"></i>
+      <i class="ph-bold ph-cube"></i>
 
       <h2>Producto no encontrado</h2>
 
@@ -34,7 +34,7 @@
     <!-- PRODUCTO -->
     <ng-container *ngIf="producto && !cargando && !errorCarga">
       <a routerLink="/productos" class="back-link">
-        <i class="bi bi-arrow-left"></i>
+        <i class="ph-bold ph-arrow-left"></i>
         Volver a productos
       </a>
 
@@ -93,13 +93,13 @@
               }"
             >
               <i
-                class="bi"
+                class="ph-bold"
                 [ngClass]="{
-                  'bi-check-circle-fill': producto.stock > 5,
+                  'ph-check-circle': producto.stock > 5,
 
-                  'bi-exclamation-circle-fill': producto.stock > 0 && producto.stock <= 5,
+                  'ph-warning-circle': producto.stock > 0 && producto.stock <= 5,
 
-                  'bi-x-circle-fill': producto.stock === 0,
+                  'ph-x-circle': producto.stock === 0,
                 }"
               ></i>
 
@@ -111,13 +111,24 @@
 
               <span *ngIf="producto.stock === 0"> Sin stock </span>
             </div>
+
+            <button
+              type="button"
+              class="btn detail-add-btn"
+              [ngClass]="{ 'is-added': agregado }"
+              [disabled]="producto.stock === 0"
+              (click)="agregarAlCarrito()"
+            >
+              <i class="ph-bold" [ngClass]="agregado ? 'ph-check' : 'ph-shopping-cart'"></i>
+              {{ producto.stock === 0 ? 'Sin stock' : agregado ? '¡Agregado al carrito!' : 'Agregar al carrito' }}
+            </button>
           </div>
 
           <!-- BENEFICIOS -->
           <div class="product-benefits">
             <div class="benefit-item">
               <span class="benefit-icon">
-                <i class="bi bi-truck"></i>
+                <i class="ph-bold ph-truck"></i>
               </span>
 
               <div>
@@ -128,7 +139,7 @@
 
             <div class="benefit-item">
               <span class="benefit-icon">
-                <i class="bi bi-shield-check"></i>
+                <i class="ph-bold ph-shield-check"></i>
               </span>
 
               <div>
@@ -139,7 +150,7 @@
 
             <div class="benefit-item">
               <span class="benefit-icon">
-                <i class="bi bi-headset"></i>
+                <i class="ph-bold ph-headset"></i>
               </span>
 
               <div>
@@ -152,7 +163,7 @@
           <a routerLink="/productos" class="catalog-cta">
             Explorar más productos
 
-            <i class="bi bi-arrow-right"></i>
+            <i class="ph-bold ph-arrow-right"></i>
           </a>
         </div>
       </section>

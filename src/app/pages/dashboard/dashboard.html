@@ -15,7 +15,7 @@
 
       <a routerLink="/productos" class="btn btn-catalog">
         Ver catálogo
-        <i class="bi bi-arrow-right"></i>
+        <i class="ph-bold ph-arrow-right"></i>
       </a>
     </section>
 
@@ -30,7 +30,7 @@
 
     <!-- ERROR -->
     <div *ngIf="errorCarga" class="dashboard-message">
-      <i class="bi bi-exclamation-circle"></i>
+      <i class="ph-bold ph-warning-circle"></i>
 
       <h2>No pudimos cargar el inventario</h2>
 
@@ -44,7 +44,7 @@
         <div class="col">
           <div class="stat-card h-100">
             <div class="stat-icon">
-              <i class="bi bi-box-seam"></i>
+              <i class="ph-bold ph-package"></i>
             </div>
 
             <div>
@@ -58,7 +58,7 @@
         <div class="col">
           <div class="stat-card h-100">
             <div class="stat-icon">
-              <i class="bi bi-tag"></i>
+              <i class="ph-bold ph-tag"></i>
             </div>
 
             <div>
@@ -72,7 +72,7 @@
         <div class="col">
           <div class="stat-card h-100">
             <div class="stat-icon danger">
-              <i class="bi bi-x-circle"></i>
+              <i class="ph-bold ph-x-circle"></i>
             </div>
 
             <div>
@@ -86,7 +86,7 @@
         <div class="col">
           <div class="stat-card h-100">
             <div class="stat-icon warning">
-              <i class="bi bi-exclamation-triangle"></i>
+              <i class="ph-bold ph-warning"></i>
             </div>
 
             <div>
@@ -100,7 +100,7 @@
         <div class="col">
           <div class="stat-card h-100">
             <div class="stat-icon success">
-              <i class="bi bi-check-circle"></i>
+              <i class="ph-bold ph-check-circle"></i>
             </div>
 
             <div>
@@ -213,16 +213,38 @@
         </div>
       </section>
 
-      <!-- INVENTARIO -->
+      <!-- GESTIÓN DE PRODUCTOS (CRUD en LocalStorage) -->
       <section class="inventory-section">
         <div class="inventory-header">
           <div>
-            <span class="section-label"> INVENTARIO </span>
+            <span class="section-label"> ADMINISTRACIÓN </span>
 
-            <h2>Inventario resumido</h2>
+            <h2>Gestión de productos</h2>
           </div>
 
-          <span class="inventory-count"> {{ productos.length }} productos </span>
+          <div class="crud-toolbar">
+            <span class="inventory-count"> {{ productos.length }} productos </span>
+
+            <button
+              type="button"
+              class="btn crud-btn crud-btn-ghost"
+              *ngIf="cambiosLocales > 0"
+              (click)="pedirRestablecer()"
+            >
+              <i class="ph-bold ph-arrow-counter-clockwise"></i>
+              Restablecer
+            </button>
+
+            <button type="button" class="btn crud-btn crud-btn-primary" (click)="abrirNuevo()">
+              <i class="ph-bold ph-plus"></i>
+              Nuevo producto
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="mensaje" class="crud-mensaje">
+          <i class="ph-bold ph-check-circle"></i>
+          {{ mensaje }}
         </div>
 
         <div class="table-responsive">
@@ -233,13 +255,18 @@
                 <th>Categoría</th>
                 <th>Precio</th>
                 <th>Stock</th>
+                <th>Oferta</th>
+                <th class="text-end">Acciones</th>
               </tr>
             </thead>
 
             <tbody>
               <tr *ngFor="let producto of productos">
                 <td>
-                  {{ producto.nombre }}
+                  <div class="crud-producto">
+                    <img [src]="producto.imagen" [alt]="producto.nombre" />
+                    <span>{{ producto.nombre }}</span>
+                  </div>
                 </td>
 
                 <td>
@@ -261,11 +288,251 @@
                     {{ producto.stock }}
                   </span>
                 </td>
+
+                <td>
+                  <span *ngIf="producto.oferta" class="crud-oferta">-{{ producto.descuento }}%</span>
+                  <span *ngIf="!producto.oferta">—</span>
+                </td>
+
+                <td class="text-end">
+                  <div class="crud-acciones">
+                    <button
+                      type="button"
+                      class="crud-icon-btn"
+                      (click)="abrirEditar(producto)"
+                      aria-label="Editar"
+                      title="Editar"
+                    >
+                      <i class="ph-bold ph-pencil-simple"></i>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="crud-icon-btn crud-icon-danger"
+                      (click)="pedirEliminar(producto)"
+                      aria-label="Eliminar"
+                      title="Eliminar"
+                    >
+                      <i class="ph-bold ph-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr *ngIf="productos.length === 0">
+                <td colspan="6" class="text-center">No hay productos. Crea el primero.</td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
     </ng-container>
+  </div>
+
+  <!-- FORMULARIO CREAR / EDITAR -->
+  <div *ngIf="formularioAbierto" class="crud-backdrop" (click)="cerrarFormulario()">
+    <div class="crud-modal" (click)="$event.stopPropagation()" role="dialog" aria-modal="true">
+      <div class="crud-modal-header">
+        <h2>{{ productoEditandoId === null ? 'Nuevo producto' : 'Editar producto' }}</h2>
+
+        <button type="button" class="crud-icon-btn" (click)="cerrarFormulario()" aria-label="Cerrar">
+          <i class="ph-bold ph-x"></i>
+        </button>
+      </div>
+
+      <form #form="ngForm" (ngSubmit)="guardarProducto(form)" novalidate>
+        <div class="row g-3">
+          <div class="col-12 col-md-8">
+            <label for="p-nombre" class="crud-label">Nombre</label>
+            <input
+              id="p-nombre"
+              name="nombre"
+              type="text"
+              class="crud-input"
+              [(ngModel)]="formulario.nombre"
+              #nombre="ngModel"
+              required
+              minlength="3"
+              [ngClass]="{ invalido: nombre.invalid && (nombre.touched || form.submitted) }"
+            />
+            <small class="crud-error" *ngIf="nombre.invalid && (nombre.touched || form.submitted)">
+              El nombre es obligatorio (mínimo 3 caracteres).
+            </small>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <label for="p-categoria" class="crud-label">Categoría</label>
+            <select
+              id="p-categoria"
+              name="categoria"
+              class="crud-input"
+              [(ngModel)]="formulario.categoria"
+              required
+            >
+              <option *ngFor="let categoria of categoriasDisponibles" [value]="categoria">
+                {{ categoria }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-12">
+            <label for="p-descripcion" class="crud-label">Descripción</label>
+            <textarea
+              id="p-descripcion"
+              name="descripcion"
+              rows="2"
+              class="crud-input"
+              [(ngModel)]="formulario.descripcion"
+              #descripcion="ngModel"
+              required
+              minlength="10"
+              [ngClass]="{ invalido: descripcion.invalid && (descripcion.touched || form.submitted) }"
+            ></textarea>
+            <small
+              class="crud-error"
+              *ngIf="descripcion.invalid && (descripcion.touched || form.submitted)"
+            >
+              La descripción es obligatoria (mínimo 10 caracteres).
+            </small>
+          </div>
+
+          <div class="col-12">
+            <label for="p-imagen" class="crud-label">Imagen (ruta o URL)</label>
+            <input
+              id="p-imagen"
+              name="imagen"
+              type="text"
+              class="crud-input"
+              list="imagenes-sugeridas"
+              [(ngModel)]="formulario.imagen"
+              #imagen="ngModel"
+              required
+              [ngClass]="{ invalido: imagen.invalid && (imagen.touched || form.submitted) }"
+            />
+            <datalist id="imagenes-sugeridas">
+              <option *ngFor="let ruta of imagenesSugeridas" [value]="ruta"></option>
+            </datalist>
+            <small class="crud-error" *ngIf="imagen.invalid && (imagen.touched || form.submitted)">
+              Indica la ruta o la URL de la imagen.
+            </small>
+          </div>
+
+          <div class="col-6">
+            <label for="p-precio" class="crud-label">Precio (S/)</label>
+            <input
+              id="p-precio"
+              name="precio"
+              type="number"
+              step="0.01"
+              min="0.01"
+              class="crud-input"
+              [(ngModel)]="formulario.precio"
+              #precio="ngModel"
+              required
+              [ngClass]="{ invalido: precio.invalid && (precio.touched || form.submitted) }"
+            />
+            <small class="crud-error" *ngIf="precio.invalid && (precio.touched || form.submitted)">
+              Ingresa un precio mayor que 0.
+            </small>
+          </div>
+
+          <div class="col-6">
+            <label for="p-stock" class="crud-label">Stock</label>
+            <input
+              id="p-stock"
+              name="stock"
+              type="number"
+              step="1"
+              min="0"
+              class="crud-input"
+              [(ngModel)]="formulario.stock"
+              #stock="ngModel"
+              required
+              [ngClass]="{ invalido: stock.invalid && (stock.touched || form.submitted) }"
+            />
+            <small class="crud-error" *ngIf="stock.invalid && (stock.touched || form.submitted)">
+              Ingresa un stock de 0 o más.
+            </small>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <label class="crud-check">
+              <input type="checkbox" name="destacado" [(ngModel)]="formulario.destacado" />
+              Destacado
+            </label>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <label class="crud-check">
+              <input type="checkbox" name="oferta" [(ngModel)]="formulario.oferta" />
+              En oferta
+            </label>
+          </div>
+
+          <div class="col-12 col-md-4" *ngIf="formulario.oferta">
+            <label for="p-descuento" class="crud-label">Descuento (%)</label>
+            <input
+              id="p-descuento"
+              name="descuento"
+              type="number"
+              min="1"
+              max="90"
+              class="crud-input"
+              [(ngModel)]="formulario.descuento"
+              #descuento="ngModel"
+              required
+              [ngClass]="{ invalido: descuento.invalid && (descuento.touched || form.submitted) }"
+            />
+            <small
+              class="crud-error"
+              *ngIf="descuento.invalid && (descuento.touched || form.submitted)"
+            >
+              Entre 1 y 90.
+            </small>
+          </div>
+        </div>
+
+        <div class="crud-modal-footer">
+          <button type="button" class="btn crud-btn crud-btn-ghost" (click)="cerrarFormulario()">
+            Cancelar
+          </button>
+
+          <button type="submit" class="btn crud-btn crud-btn-primary">
+            <i class="ph-bold ph-floppy-disk"></i>
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CONFIRMACIÓN -->
+  <div *ngIf="confirmacion" class="crud-backdrop" (click)="cancelarConfirmacion()">
+    <div
+      class="crud-modal crud-modal-sm"
+      (click)="$event.stopPropagation()"
+      role="alertdialog"
+      aria-modal="true"
+    >
+      <h2>{{ confirmacion.tipo === 'eliminar' ? '¿Eliminar producto?' : '¿Restablecer datos?' }}</h2>
+
+      <p *ngIf="confirmacion.tipo === 'eliminar'">
+        Se eliminará <strong>{{ confirmacion.producto?.nombre }}</strong> de este navegador.
+      </p>
+
+      <p *ngIf="confirmacion.tipo === 'restablecer'">
+        Se borrarán todos los cambios hechos en este navegador y volverán los productos originales.
+      </p>
+
+      <div class="crud-modal-footer">
+        <button type="button" class="btn crud-btn crud-btn-ghost" (click)="cancelarConfirmacion()">
+          Cancelar
+        </button>
+
+        <button type="button" class="btn crud-btn crud-btn-danger" (click)="confirmarAccion()">
+          {{ confirmacion.tipo === 'eliminar' ? 'Eliminar' : 'Restablecer' }}
+        </button>
+      </div>
+    </div>
   </div>
 </main>

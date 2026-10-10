@@ -1,17 +1,16 @@
 .store-page {
   min-height: 100vh;
-  color: #f5f7fa;
-  background: #0b0d12;
+  color: var(--color-text);
 }
 
 .store-hero {
   padding: 6rem 0;
-  border-bottom: 1px solid #272b38;
-  background: radial-gradient(circle at 80% 30%, rgba(124, 92, 252, 0.2), transparent 35%), #0b0d12;
+  border-bottom: 3px solid var(--key-edge);
+  background: radial-gradient(circle at 80% 30%, color-mix(in srgb, var(--color-primary) 20%, transparent), transparent 35%), var(--color-bg);
 }
 
 .section-label {
-  color: #7c5cfc;
+  color: var(--color-primary);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -26,29 +25,29 @@
 }
 
 .store-hero h1 span {
-  color: #7c5cfc;
+  color: var(--color-primary);
 }
 
 .store-hero p {
   max-width: 600px;
   margin-bottom: 2rem;
-  color: #9ca3af;
+  color: var(--color-muted);
   font-size: 1.05rem;
 }
 
 .btn-nexo {
   padding: 0.8rem 1.25rem;
-  color: #fff;
-  background: #7c5cfc;
-  border: 1px solid #7c5cfc;
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
   border-radius: 10px;
   font-weight: 600;
 }
 
 .btn-nexo:hover {
-  color: #fff;
-  background: #6d4df0;
-  border-color: #6d4df0;
+  color: var(--color-on-primary);
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
 }
 
 .section-block {
@@ -56,7 +55,7 @@
 }
 
 .alternate-section {
-  background: #101219;
+  background: var(--color-surface-alt);
 }
 
 .section-heading {
@@ -70,7 +69,7 @@
 
 .section-heading p {
   max-width: 650px;
-  color: #9ca3af;
+  color: var(--color-muted);
 }
 
 .heading-row {
@@ -85,22 +84,23 @@
   min-height: 150px;
   gap: 1.25rem;
   padding: 1.5rem;
-  color: #f5f7fa;
-  background: #151821;
-  border: 1px solid #272b38;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 3px solid var(--key-edge);
   border-radius: 16px;
   text-decoration: none;
   transition: 180ms ease;
+  box-shadow: 5px 5px 0 var(--key-edge);
 }
 
 .category-card:hover {
-  color: #fff;
-  border-color: #7c5cfc;
+  color: var(--color-text);
+  border-color: var(--color-primary);
   transform: translateY(-3px);
 }
 
 .category-card i {
-  color: #7c5cfc;
+  color: var(--color-primary);
   font-size: 2rem;
 }
 
@@ -111,34 +111,35 @@
 
 .category-card p {
   margin: 0;
-  color: #9ca3af;
+  color: var(--color-muted);
   font-size: 0.9rem;
 }
 
 .accent-card {
-  background: linear-gradient(135deg, rgba(124, 92, 252, 0.18), #151821);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 18%, transparent), var(--color-surface));
 }
 
 .section-link {
   flex-shrink: 0;
-  color: #9ca3af;
+  color: var(--color-muted);
   text-decoration: none;
 }
 
 .section-link:hover {
-  color: #7c5cfc;
+  color: var(--color-primary);
 }
 
 .benefit-card {
   height: 100%;
   padding: 1.5rem;
-  background: #151821;
-  border: 1px solid #272b38;
+  background: var(--color-surface);
+  border: 3px solid var(--key-edge);
   border-radius: 14px;
+  box-shadow: 5px 5px 0 var(--key-edge);
 }
 
 .benefit-card i {
-  color: #7c5cfc;
+  color: var(--color-primary);
   font-size: 1.7rem;
 }
 
@@ -149,7 +150,7 @@
 
 .benefit-card p {
   margin: 0;
-  color: #9ca3af;
+  color: var(--color-muted);
   font-size: 0.9rem;
 }
 

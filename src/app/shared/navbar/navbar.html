@@ -14,7 +14,7 @@
       aria-expanded="false"
       aria-label="Abrir navegación"
     >
-      <i class="bi bi-list"></i>
+      <i class="ph-bold ph-list"></i>
     </button>
 
     <div class="collapse navbar-collapse" id="nexoNavbar">
@@ -26,28 +26,51 @@
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
           >
-            Inicio
+            <i class="ph-bold ph-house me-1"></i>Inicio
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/productos" routerLinkActive="active"> Productos </a>
+          <a class="nav-link" routerLink="/productos" routerLinkActive="active">
+            <i class="ph-bold ph-squares-four me-1"></i>Productos
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/ofertas" routerLinkActive="active"> Ofertas </a>
+          <a class="nav-link" routerLink="/ofertas" routerLinkActive="active">
+            <i class="ph-bold ph-tag me-1"></i>Ofertas
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/tienda" routerLinkActive="active"> Tienda </a>
+          <a class="nav-link" routerLink="/tienda" routerLinkActive="active">
+            <i class="ph-bold ph-storefront me-1"></i>Tienda
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/contacto" routerLinkActive="active"> Contacto </a>
+          <a class="nav-link" routerLink="/contacto" routerLinkActive="active">
+            <i class="ph-bold ph-envelope-simple me-1"></i>Contacto
+          </a>
         </li>
       </ul>
 
       <div class="navbar-account">
+        <button
+          type="button"
+          class="theme-toggle"
+          (click)="alternarTema()"
+          [attr.aria-label]="(tema$ | async) === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'"
+          [title]="(tema$ | async) === 'dark' ? 'Modo claro' : 'Modo oscuro'"
+        >
+          <i class="ph-bold" [ngClass]="(tema$ | async) === 'dark' ? 'ph-sun' : 'ph-moon-stars'"></i>
+        </button>
+
+        <a routerLink="/carrito" class="cart-link" aria-label="Carrito" title="Carrito">
+          <i class="ph-bold ph-shopping-cart"></i>
+          <span *ngIf="(cantidadCarrito$ | async) as cantidad" class="cart-count">{{ cantidad }}</span>
+        </a>
+
         <ng-container *ngIf="usuario$ | async as usuario; else sesionInvitado">
           <div class="dropdown">
             <button
@@ -56,7 +79,7 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <i class="bi bi-person-circle"></i>
+              <i class="ph-bold ph-user-circle"></i>
 
               <span>
                 {{ usuario.nombre }}
@@ -82,14 +105,14 @@
 
               <li>
                 <a class="dropdown-item" routerLink="/mi-cuenta">
-                  <i class="bi bi-person"></i>
+                  <i class="ph-bold ph-user"></i>
                   Mi Cuenta
                 </a>
               </li>
 
               <li>
                 <a class="dropdown-item" routerLink="/dashboard">
-                  <i class="bi bi-grid"></i>
+                  <i class="ph-bold ph-squares-four"></i>
                   Dashboard
                 </a>
               </li>
@@ -100,7 +123,7 @@
 
               <li>
                 <button class="dropdown-item logout-item" type="button" (click)="cerrarSesion()">
-                  <i class="bi bi-box-arrow-right"></i>
+                  <i class="ph-bold ph-sign-out"></i>
                   Cerrar sesión
                 </button>
               </li>
@@ -110,11 +133,14 @@
 
         <ng-template #sesionInvitado>
           <a routerLink="/mi-cuenta" class="account-link">
-            <i class="bi bi-person"></i>
+            <i class="ph-bold ph-user"></i>
             Mi Cuenta
           </a>
 
-          <a routerLink="/login" class="login-link"> Ingresar </a>
+          <a routerLink="/login" class="login-link">
+            <i class="ph-bold ph-sign-in"></i>
+            Ingresar
+          </a>
         </ng-template>
       </div>
     </div>

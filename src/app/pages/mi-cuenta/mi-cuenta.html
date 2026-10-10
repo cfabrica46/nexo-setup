@@ -12,12 +12,12 @@
     <div *ngIf="usuario" class="account-card">
       <div class="profile-header">
         <div class="profile-icon">
-          <i class="bi bi-person"></i>
+          <i class="ph-bold ph-user"></i>
         </div>
 
         <div>
           <span class="session-status">
-            <i class="bi bi-circle-fill"></i>
+            <i class="ph-bold ph-circle"></i>
             Sesión activa
           </span>
 
@@ -53,12 +53,12 @@
 
       <div class="account-actions">
         <a routerLink="/dashboard" class="btn btn-dashboard">
-          <i class="bi bi-grid"></i>
+          <i class="ph-bold ph-squares-four"></i>
           Ir al Dashboard
         </a>
 
         <button type="button" class="btn btn-logout" (click)="cerrarSesion()">
-          <i class="bi bi-box-arrow-right"></i>
+          <i class="ph-bold ph-sign-out"></i>
           Cerrar sesión
         </button>
       </div>
@@ -66,7 +66,7 @@
 
     <!-- SIN SESIÓN -->
     <div *ngIf="!usuario" class="no-session">
-      <i class="bi bi-person-x"></i>
+      <i class="ph-bold ph-user-minus"></i>
 
       <h2>No tienes una sesión activa</h2>
 

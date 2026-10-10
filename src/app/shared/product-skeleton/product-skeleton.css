@@ -1,10 +1,11 @@
 .product-skeleton {
   overflow: hidden;
 
-  background: #151821;
+  background: var(--color-surface);
 
-  border: 1px solid #272b38;
+  border: 3px solid var(--key-edge);
   border-radius: 18px;
+  box-shadow: 5px 5px 0 var(--key-edge);
 }
 
 .skeleton-image {
@@ -21,7 +22,7 @@
 
   overflow: hidden;
 
-  background: #1d202b;
+  background: var(--color-surface-secondary);
 }
 
 .skeleton::after {
@@ -32,7 +33,7 @@
 
   transform: translateX(-100%);
 
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.055), transparent);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-text) 6%, transparent), transparent);
 
   animation: skeleton-loading 1.4s infinite;
 }

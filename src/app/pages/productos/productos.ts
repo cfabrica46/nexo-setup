@@ -20,6 +20,16 @@ export class Productos implements OnInit {
 
   skeletons = Array.from({ length: 8 });
 
+  iconos: Record<string, string> = {
+    Todos: 'ph-squares-four',
+    Teclados: 'ph-keyboard',
+    Mouse: 'ph-mouse',
+    Audio: 'ph-headphones',
+    Escritorio: 'ph-desktop',
+    Conectividad: 'ph-usb',
+    Iluminación: 'ph-lightbulb',
+  };
+
   categorias: string[] = [
     'Todos',
     'Teclados',

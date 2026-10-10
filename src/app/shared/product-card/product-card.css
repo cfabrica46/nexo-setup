@@ -1,21 +1,22 @@
 .product-card {
   overflow: hidden;
-  background: #151821;
-  border: 1px solid #272b38;
+  background: var(--color-surface);
+  border: 3px solid var(--key-edge);
   border-radius: 16px;
   transition: 180ms ease;
+  box-shadow: 5px 5px 0 var(--key-edge);
 }
 
 .product-card:hover {
   transform: translateY(-4px);
-  border-color: #7c5cfc;
+  border-color: var(--color-primary);
 }
 
 .product-image-wrapper {
   position: relative;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  background: #1d202b;
+  background: var(--color-surface-secondary);
 }
 
 .product-image {
@@ -39,8 +40,8 @@
   right: 12px;
   z-index: 2;
   padding: 0.35rem 0.65rem;
-  background: #7c5cfc;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
   border-radius: 8px;
   font-size: 0.8rem;
   font-weight: 700;
@@ -51,20 +52,20 @@
 }
 
 .product-category {
-  color: #7c5cfc;
+  color: var(--color-primary);
   font-size: 0.8rem;
   font-weight: 600;
 }
 
 .product-name {
   margin: 0.45rem 0;
-  color: #f5f7fa;
+  color: var(--color-text);
   font-size: 1.15rem;
 }
 
 .product-description {
   min-height: 48px;
-  color: #9ca3af;
+  color: var(--color-muted);
   font-size: 0.9rem;
 }
 
@@ -76,13 +77,13 @@
 }
 
 .old-price {
-  color: #9ca3af;
+  color: var(--color-muted);
   font-size: 0.9rem;
   text-decoration: line-through;
 }
 
 .current-price {
-  color: #f5f7fa;
+  color: var(--color-text);
   font-size: 1.2rem;
   font-weight: 700;
 }
@@ -111,7 +112,7 @@
 
   margin-top: 1rem;
 
-  color: #a78bfa;
+  color: var(--color-accent-text);
 
   text-decoration: none;
 
@@ -126,5 +127,66 @@
 .product-detail-link:hover {
   gap: 0.65rem;
 
-  color: #c4b5fd;
+  color: var(--color-accent-text);
+}
+
+/* Ficha técnica con relieve de tecla */
+.product-card {
+  border: 3px solid var(--key-edge);
+  border-radius: 18px;
+  box-shadow: 0 5px 0 var(--key-edge);
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--key-edge);
+  box-shadow: 0 7px 0 var(--key-edge);
+}
+
+.product-image-wrapper {
+  border-bottom: 3px solid var(--key-edge);
+}
+
+.product-category {
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
+.product-sku {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--color-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.current-price,
+.old-price {
+  font-family: var(--font-mono);
+}
+
+.add-cart-btn {
+  width: 100%;
+  margin: 0.8rem 0 0.4rem;
+  padding: 0.55rem 1rem;
+  color: #0a0a0a;
+  background: var(--color-yellow);
+}
+
+.add-cart-btn:hover:not(:disabled) {
+  color: #0a0a0a;
+  background: var(--color-pink);
+}
+
+.add-cart-btn.is-added {
+  background: var(--color-green);
+}
+
+.add-cart-btn:disabled {
+  opacity: 0.55;
+  box-shadow: none;
 }

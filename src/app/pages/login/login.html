@@ -19,7 +19,7 @@
       <div class="login-card">
         <div class="login-heading">
           <span class="login-icon">
-            <i class="bi bi-person"></i>
+            <i class="ph-bold ph-user"></i>
           </span>
 
           <div>
@@ -30,7 +30,7 @@
 
         <form (ngSubmit)="iniciarSesion()">
           <div class="mb-3">
-            <label for="email" class="form-label"> Correo </label>
+            <label for="email" class="form-label"><i class="ph-bold ph-envelope-simple me-1"></i>Correo</label>
 
             <input
               id="email"
@@ -43,7 +43,7 @@
           </div>
 
           <div class="mb-3">
-            <label for="password" class="form-label"> Contraseña </label>
+            <label for="password" class="form-label"><i class="ph-bold ph-lock me-1"></i>Contraseña</label>
 
             <input
               id="password"
@@ -56,14 +56,14 @@
           </div>
 
           <div *ngIf="errorLogin" class="login-error">
-            <i class="bi bi-exclamation-circle"></i>
+            <i class="ph-bold ph-warning-circle"></i>
 
             Correo o contraseña incorrectos.
           </div>
 
           <button type="submit" class="btn btn-login-nexo w-100">
             Ingresar al Dashboard
-            <i class="bi bi-arrow-right"></i>
+            <i class="ph-bold ph-arrow-right"></i>
           </button>
         </form>
       </div>

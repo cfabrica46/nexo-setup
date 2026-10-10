@@ -12,6 +12,7 @@ import { Login } from './pages/login/login';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { NotFound } from './pages/not-found/not-found';
 import { ProductDetail } from './pages/product-detail/product-detail';
+import { Carrito } from './pages/carrito/carrito';
 
 const routes: Routes = [
   {
@@ -52,13 +53,21 @@ const routes: Routes = [
     component: ProductDetail,
   },
   {
+    path: 'carrito',
+    component: Carrito,
+  },
+  {
     path: '**',
     component: NotFound,
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'top',
+      anchorScrolling: 'enabled',
+      onSameUrlNavigation: 'reload',
+    })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

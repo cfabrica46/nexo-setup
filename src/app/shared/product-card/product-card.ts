@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CartService } from '../../core/services/cart';
 import { Producto } from '../../models/producto.model';
 
 @Component({
@@ -9,6 +10,17 @@ import { Producto } from '../../models/producto.model';
 })
 export class ProductCard {
   @Input() producto!: Producto;
+
+  agregado = false;
+
+  constructor(private cartService: CartService) {}
+
+  agregar(): void {
+    if (this.cartService.agregar(this.producto)) {
+      this.agregado = true;
+      setTimeout(() => (this.agregado = false), 1400);
+    }
+  }
 
   get precioFinal(): number {
     if (!this.producto.oferta || !this.producto.descuento) {

@@ -11,6 +11,7 @@ import { ProductoService } from '../../core/services/producto';
 })
 export class Home implements OnInit {
   productosDestacados: Producto[] = [];
+  productosConDescuento: Producto[] = [];
   heroProducto: Producto | null = null;
 
   cargando = true;
@@ -35,6 +36,10 @@ export class Home implements OnInit {
       next: (productos) => {
         this.heroProducto = productos.find((producto) => producto.id === 1) ?? null;
 
+        this.productosConDescuento = productos
+          .filter((producto) => producto.oferta && producto.descuento)
+          .sort((a, b) => (b.descuento ?? 0) - (a.descuento ?? 0));
+
         this.productosDestacados = productos.filter((producto) => producto.destacado).slice(0, 4);
 
         this.cargando = false;
@@ -49,6 +54,12 @@ export class Home implements OnInit {
         this.cdr.markForCheck();
       },
     });
+  }
+
+  get laterales(): Producto[] {
+    return this.productosConDescuento
+      .filter((producto) => producto.id !== this.heroProducto?.id)
+      .slice(0, 1);
   }
 
   get heroPrecioFinal(): number {

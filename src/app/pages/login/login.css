@@ -3,8 +3,7 @@
   min-height: calc(100vh - 80px);
   align-items: center;
   color: var(--color-text);
-  background:
-    radial-gradient(circle at 20% 40%, rgba(124, 92, 252, 0.15), transparent 35%), var(--color-bg);
+  background: transparent;
 }
 
 .login-wrapper {
@@ -44,7 +43,7 @@
   padding: 1rem 1.2rem;
   flex-direction: column;
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  border: 3px solid var(--key-edge);
   border-radius: var(--radius-md);
 }
 
@@ -62,7 +61,7 @@
 .login-card {
   padding: 2rem;
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  border: 3px solid var(--key-edge);
   border-radius: var(--radius-lg);
 }
 
@@ -92,8 +91,9 @@
   place-items: center;
   color: var(--color-primary);
   background: var(--color-surface-secondary);
-  border: 1px solid var(--color-border);
+  border: 3px solid var(--key-edge);
   border-radius: 12px;
+  box-shadow: 5px 5px 0 var(--key-edge);
 }
 
 .form-label {
@@ -105,25 +105,25 @@
   padding: 0.85rem 1rem;
   color: var(--color-text);
   background: var(--color-bg);
-  border: 1px solid var(--color-border);
+  border: 3px solid var(--key-edge);
   border-radius: 10px;
 }
 
 .form-control::placeholder {
-  color: #6b7280;
+  color: var(--color-subtle);
 }
 
 .form-control:focus {
   color: var(--color-text);
   background: var(--color-bg);
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 0.2rem rgba(124, 92, 252, 0.12);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--color-primary) 12%, transparent);
 }
 
 .login-error {
   margin-bottom: 1rem;
   padding: 0.8rem 1rem;
-  color: #fca5a5;
+  color: var(--color-danger-text);
   background: rgba(239, 68, 68, 0.1);
   border: 1px solid rgba(239, 68, 68, 0.3);
   border-radius: 10px;
@@ -137,7 +137,7 @@
 .btn-login-nexo {
   margin-top: 0.5rem;
   padding: 0.85rem 1rem;
-  color: #fff;
+  color: var(--color-on-primary);
   background: var(--color-primary);
   border: 1px solid var(--color-primary);
   border-radius: 10px;
@@ -145,7 +145,7 @@
 }
 
 .btn-login-nexo:hover {
-  color: #fff;
+  color: var(--color-on-primary);
   background: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
 }
