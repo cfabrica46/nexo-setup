@@ -1,70 +1,136 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:...'); */
+/* =========================================
+   NEXO SETUP — PETROL STUDIO
+   Tema claro
+   ========================================= */
 
-/* Tema claro NEXO · NEOBRUTALISMO */
 :root[data-theme='light'] {
-  --color-bg: #fff4d6;
+  /* Fondos y superficies */
+  --color-bg: #eef5f3;
   --color-surface: #ffffff;
-  --color-surface-secondary: #ffe08a;
-  --color-surface-alt: #ffeaa8;
+  --color-surface-secondary: #e2efec;
+  --color-surface-alt: #f6fbfa;
 
-  --color-primary: #2d5bff;
-  --color-primary-hover: #1f46d6;
+  /* Color principal */
+  --color-primary: #478a92;
+  --color-primary-hover: #36747b;
   --color-on-primary: #ffffff;
-  --color-accent-text: #1f46d6;
+  --color-accent-text: #3e7b82;
 
-  --color-yellow: #ffd33d;
-  --color-pink: #ff5c9e;
-  --color-green: #35d49a;
+  /* Colores complementarios */
+  --color-yellow: #e0b764;
+  --color-pink: #d58f9a;
+  --color-green: #5db995;
 
-  --color-text: #0a0a0a;
-  --color-text-soft: #262626;
-  --color-muted: #4a4a4a;
-  --color-subtle: #6e6e6e;
-  --color-border: #0a0a0a;
-  --color-border-strong: #0a0a0a;
-  --key-edge: #0a0a0a;
+  /* Tipografía */
+  --color-text: #1c2a2d;
+  --color-text-soft: #35484b;
+  --color-muted: #596e72;
+  --color-subtle: #7d8e92;
 
-  --color-success: #1f9d63;
-  --color-danger: #e0263f;
-  --color-warning: #d98b00;
-  --color-success-text: #11713f;
-  --color-danger-text: #b3162d;
-  --color-warning-text: #8a5600;
+  /* Bordes */
+  --color-border: #c4d7d3;
+  --color-border-strong: #7e9a98;
+  --key-edge: #7e9a98;
+
+  /* Estados */
+  --color-success: #1f7b59;
+  --color-success-text: #196648;
+
+  --color-danger: #bf616c;
+  --color-danger-text: #9c4c56;
+
+  --color-warning: #9f7319;
+  --color-warning-text: #805c11;
+
+  /* Hero */
+  --color-hero-bg: #d8ebe7;
+  --color-hero-text: #142c2f;
+
+  /* Secciones destacadas */
+  --color-feature-bg: #69b8c0;
+  --color-feature-text: #112728;
+
+  /* CTA */
+  --color-cta: #e0b764;
+  --color-cta-text: #241c10;
+
+  /* Marquee */
+  --color-marquee-1: #e9b1bc;
+  --color-marquee-2: #efd08d;
+  --color-marquee-text: #2c2221;
+
+  /* Elementos decorativos */
+  --color-dot: rgba(71, 138, 146, 0.12);
+  --color-square-text: #171510;
 
   color-scheme: light;
 }
 
-/* Tema oscuro */
+/* =========================================
+   NEXO SETUP — PETROL STUDIO
+   Tema oscuro (predeterminado)
+   ========================================= */
+
 :root,
 :root[data-theme='dark'] {
-  --color-bg: #121212;
-  --color-surface: #1e1e1e;
-  --color-surface-secondary: #2a2a2a;
-  --color-surface-alt: #181818;
+  /* Fondos y superficies */
+  --color-bg: #0d171b;
+  --color-surface: #18262b;
+  --color-surface-secondary: #26383d;
+  --color-surface-alt: #112025;
 
-  --color-primary: #7b9bff;
-  --color-primary-hover: #9db4ff;
-  --color-on-primary: #0a0a0a;
-  --color-accent-text: #9db4ff;
+  /* Color principal */
+  --color-primary: #67b3ba;
+  --color-primary-hover: #85ced2;
+  --color-on-primary: #081214;
+  --color-accent-text: #8ed7d9;
 
-  --color-yellow: #ffd33d;
-  --color-pink: #ff5c9e;
-  --color-green: #35d49a;
+  /* Colores complementarios */
+  --color-yellow: #e7bd70;
+  --color-pink: #d58f9a;
+  --color-green: #72cba6;
 
-  --color-text: #f5f0e1;
-  --color-text-soft: #ddd7c6;
-  --color-muted: #a8a395;
-  --color-subtle: #7c786b;
-  --color-border: #f5f0e1;
-  --color-border-strong: #f5f0e1;
-  --key-edge: #f5f0e1;
+  /* Tipografía */
+  --color-text: #f3f5f2;
+  --color-text-soft: #d6e2dd;
+  --color-muted: #acc0bc;
+  --color-subtle: #869a96;
 
-  --color-success: #35d49a;
-  --color-danger: #ff5c6c;
-  --color-warning: #ffb020;
-  --color-success-text: #86efac;
-  --color-danger-text: #ff9aa5;
-  --color-warning-text: #fcd34d;
+  /* Bordes */
+  --color-border: #486064;
+  --color-border-strong: #8ba7a5;
+  --key-edge: #8ba7a5;
+
+  /* Estados */
+  --color-success: #72cba6;
+  --color-success-text: #89ddb9;
+
+  --color-danger: #ee9198;
+  --color-danger-text: #ffb7bc;
+
+  --color-warning: #e7bd70;
+  --color-warning-text: #e7bd70;
+
+  /* Hero */
+  --color-hero-bg: #b9d9d3;
+  --color-hero-text: #122d2e;
+
+  /* Secciones destacadas */
+  --color-feature-bg: #367c85;
+  --color-feature-text: #ffffff;
+
+  /* CTA */
+  --color-cta: #e7bd70;
+  --color-cta-text: #1c1c14;
+
+  /* Marquee */
+  --color-marquee-1: #d89a99;
+  --color-marquee-2: #e7bd70;
+  --color-marquee-text: #261d1c;
+
+  /* Elementos decorativos */
+  --color-dot: rgba(103, 179, 186, 0.18);
+  --color-square-text: #181612;
 
   color-scheme: dark;
 }
